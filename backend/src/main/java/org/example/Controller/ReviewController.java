@@ -16,22 +16,25 @@ public class ReviewController {
     public static void getReviewForPlace(Context ctx) throws IOException, InterruptedException {
 
         String url = "https://api.yelp.com/v3/businesses/manhatta-new-york/reviews?limit=20&sort_by=yelp_sort";
-
+        String apikey = "MqUwNszWmXDKC6nYbQcG0vlv5GfIi03bAgq8884hV8Jxk_Tod_ZljOD9EXxSGQTKAOfXxrwUTbcAAf0Nbe_5aMvrqm3ljtxy92Kqv0N0wMfSm8G9eFAu3idaKbR5ZXYx";
         HttpResponse<String> response;
-        try (HttpClient client = HttpClient.newHttpClient()) {
-
+        try {
+            HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
-                    .header("Authorization", "Bearer " + apiKey)
+                    .header("Authorization", "Bearer " + apikey)
                     .build();
 
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            if (response.statusCode() == 200) {
+                ctx.json(response.body());
+            } else {
+                System.out.println("GET: NOT WORKING");
+            }
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
         }
 
-        if (response.statusCode() == 200) {
-            ctx.json(response.body());
-        } else {
-            System.out.println("GET: NOT WORKING");
-        }
     }
 }
