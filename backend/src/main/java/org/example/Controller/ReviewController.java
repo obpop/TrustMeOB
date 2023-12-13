@@ -38,7 +38,6 @@ public class ReviewController {
     public static void getReviewForPlace(Context ctx) throws IOException, InterruptedException {
 
         String url = "https://api.yelp.com/v3/businesses/manhatta-new-york/reviews?limit=20&sort_by=yelp_sort";
-        String apiKey = "pOycasf3MSMxdpMNtDrhSdpwuda6fx5osetTYRGwPiY7yLzOOf8Mmi9x6ue_OhiBaIF4hRe2gL_zNsvBZUvv_JB2yQGNkQ4vmUTxNz4wxdWDOCeBgAVnmiVCn-d2ZXYx";
 
         HttpResponse<String> response;
         try (HttpClient client = HttpClient.newHttpClient()) {
