@@ -7,7 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ReviewController {
-    public static void getRequest() throws IOException {
+    public static String getRequest() throws IOException {
         URL urlForGetRequest = new URL("https://jsonplaceholder.typicode.com/posts/1"); //change maybe
         String readLine = null;
         HttpURLConnection connection = (HttpURLConnection) urlForGetRequest.openConnection();
@@ -23,9 +23,10 @@ public class ReviewController {
                 response.append(readLine);
             } in.close();
             //print out result
-            System.out.println("JSON STRING RESULT " + response.toString());
+            return response.toString();
         } else {
             System.out.println("GET: NOT WORKING");
+            return "Error: " + responseCode;
         }
     }
 }
