@@ -13,28 +13,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ReviewController {
-    public static String getRequest() throws IOException {
-        URL urlForGetRequest = new URL("https://jsonplaceholder.typicode.com/posts/1"); //change maybe
-        String readLine = null;
-        HttpURLConnection connection = (HttpURLConnection) urlForGetRequest.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("userId", "a1bcdef"); //add later
-        int responseCode = connection.getResponseCode();
-
-        if (responseCode == HttpURLConnection.HTTP_OK) {
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(connection.getInputStream()));
-            StringBuffer response = new StringBuffer();
-            while ((readLine = in.readLine()) != null) {
-                response.append(readLine);
-            } in.close();
-            //print out result
-            return response.toString();
-        } else {
-            System.out.println("GET: NOT WORKING");
-            return "Error: " + responseCode;
-        }
-    }
     public static void getReviewForPlace(Context ctx) throws IOException, InterruptedException {
 
         String url = "https://api.yelp.com/v3/businesses/manhatta-new-york/reviews?limit=20&sort_by=yelp_sort";
