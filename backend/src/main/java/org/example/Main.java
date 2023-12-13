@@ -19,8 +19,6 @@ public class Main {
         Javalin app = Javalin.create().start(7000);
         app.get("/", ReviewController::getReviewForPlace);
 
-        Javalin app = Javalin.create().start(8080);
-
     }
 }
 
