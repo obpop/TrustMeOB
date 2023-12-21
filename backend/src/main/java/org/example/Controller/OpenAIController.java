@@ -9,13 +9,13 @@ import java.net.URL;
 public class OpenAIController {
 
     public static void main(String[] args) {
-        System.out.println(chatGPT("hello, how are you?"));
+        System.out.println(chatGPT("hello, who is Putin Trump?"));
         // Prints out a response to the question.
     }
 
     public static String chatGPT(String message) {
         String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = "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"; // API key goes here
+        String apiKey = "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"; // API key goes here
         String model = "gpt-3.5-turbo"; // current model of chatgpt api
 
         try {
