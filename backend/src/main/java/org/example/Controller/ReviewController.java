@@ -15,7 +15,7 @@ import java.net.http.HttpResponse;
 public class ReviewController {
     public static void getReviewForPlace(Context ctx) throws IOException, InterruptedException {
 
-        String url = "https://api.yelp.com/v3/businesses/manhatta-new-york/reviews?limit=20&sort_by=yelp_sort";
+        String url = "https://api.yelp.com/v3/businesses/manhatta-new-york/reviews?limit=5&sort_by=yelp_sort";
         String apikey = "MqUwNszWmXDKC6nYbQcG0vlv5GfIi03bAgq8884hV8Jxk_Tod_ZljOD9EXxSGQTKAOfXxrwUTbcAAf0Nbe_5aMvrqm3ljtxy92Kqv0N0wMfSm8G9eFAu3idaKbR5ZXYx";
         HttpResponse<String> response;
         try {
