@@ -3,7 +3,8 @@ package org.example.Controller;
 import io.javalin.http.Context;
 
 public class MapsController {
-    String APIKey = "AIzaSyBScQfyRncKpYdtwSIuNFAumA30mGOIdpc";
+    //TODO skriv in API key nedan
+    String APIKey = "";
 
     //Test metod nedan
     //TODO: Ta bort när resten av koden fungerar
