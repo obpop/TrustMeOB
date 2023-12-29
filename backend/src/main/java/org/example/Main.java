@@ -20,7 +20,7 @@ public class Main {
         Javalin app = Javalin.create().start(8080);
         //app.get("/", ReviewController::getReviewForPlace);
         MapsController mapsController = new MapsController();
-        app.get("/test-map", mapsController::testMapCreation);
+        app.get("/", mapsController::testMapCreation);
 
     }
 }
