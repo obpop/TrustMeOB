@@ -18,9 +18,9 @@ import java.net.http.HttpResponse;
 public class Main {
     public static void main(String[] args) throws IOException {
         Javalin app = Javalin.create().start(8080);
-        //app.get("/", ReviewController::getReviewForPlace);
+        app.get("/", ReviewController::getReviewForPlace);
         MapsController mapsController = new MapsController();
-        app.get("/", mapsController::testMapCreation);
+        app.get("/test-map", mapsController::testMapCreation);
 
     }
 }
