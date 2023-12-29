@@ -6,6 +6,7 @@ public class MapsController {
     String APIKey = "AIzaSyBScQfyRncKpYdtwSIuNFAumA30mGOIdpc";
 
     //Test metod nedan
+    //TODO: Ta bort när resten av koden fungerar
     public void testMapCreation(Context ctx) {
         double[] testCoordinates = new double[]{55.61427531137008,12.989121348455722};
         handleMapCreation(testCoordinates, ctx);
