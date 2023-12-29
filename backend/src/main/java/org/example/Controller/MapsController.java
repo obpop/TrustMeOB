@@ -1,9 +1,38 @@
 package org.example.Controller;
 
-public class MapsController {
-}
+import io.javalin.http.Context;
 
-//ta reda på vad klassen ska retunera
-//ska få in long och lat
-//ska retunera en map från google maps
-//metod som tar in lang och long som arturo kan kalla på
+public class MapsController {
+    String APIKey = "AIzaSyBScQfyRncKpYdtwSIuNFAumA30mGOIdpc";
+
+    //Test metod nedan
+    public void testMapCreation(Context ctx) {
+        double[] testCoordinates = new double[]{55.61427531137008,12.989121348455722};
+        handleMapCreation(testCoordinates, ctx);
+    }
+
+    // Tar emot en array med latitude och longitude
+    public void handleMapCreation(double[] coordinates, Context ctx) {
+        if (coordinates != null && coordinates.length == 2) {
+            String mapUrl = generateStaticMapUrl(coordinates[0], coordinates[1]);
+            ctx.result(mapUrl);
+            // TODO: Skicka mapURL till front-end
+        } else {
+            System.out.println("OBS! Did not enter coordinates correctly");
+        }
+    }
+
+    //Genererar en statisk bild
+    private String generateStaticMapUrl(double latitude, double longitude) {
+        // URL för Google Static Maps API
+        return "https://maps.googleapis.com/maps/api/staticmap?center="
+                + latitude
+                + ","
+                + longitude
+                + "&zoom=16&size=400x400&key="
+                + APIKey;
+
+        //ex https://maps.googleapis.com/maps/api/staticmap?center=55.61427531137008,12.989121348455722&zoom=16&size=400x400&key=AIzaSyBScQfyRncKpYdtwSIuNFAumA30mGOIdpc
+    }
+
+}
