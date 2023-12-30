@@ -9,7 +9,8 @@ import java.net.URL;
 public class OpenAIController {
 
     public static void main(String[] args) {
-        System.out.println(chatGPT("hello, who is Putin Trump?"));
+        //System.out.println(chatGPT("hello, who is Putin Trump?"));
+        System.out.println("Hello world");
         // Prints out a response to the question.
     }
 
