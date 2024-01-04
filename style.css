@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0%;
+}
+
+header {
+    font-family: tahoma;
+    background: #202B3B;
+    box-shadow: 0px 5px 100px 5px #202B3B;
+    text-align: center;
+    padding: 100px 0;
+}
+
+h1 {
+    margin-top: 0%;
+    padding-top: 20px;
+    color: #ef8104;
+    text-align: center;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.searchbar {
+    padding-left: 10px;
+    border-radius: 20px;
+    background: #F6F6F6;
+    width: 45%;
+    max-width: 500px;
+    height: 50px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    gap: 10px;
+    padding: 85px;
+}
+
+#company-rating-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#company {
+    font-size: 24px;
+    border-radius: 20px;
+}
+
+#rating img {
+ width: 30px;
+ height: auto;
+}
+
+.data {
+    border-radius: 10px;
+    background: #202B3B;
+}
+
+h3 {
+    margin: 50px;
+    color: #f68300;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#strengths {
+    margin: 30px;
+    grid-area: 2 / 1 / 3 / 2;
+    color: white
+}
+
+#flaws {
+    margin: 30px;
+    grid-area: 2 / 2 / 3 / 3;
+    color: white
+}
+
+#strategy {
+    margin: 30px;
+    grid-area: 3 / 1 / 4 / 3;
+    color: white
+}
