@@ -1,6 +1,7 @@
 package org.example;
 
 import io.javalin.Javalin;
+import org.example.Controller.FoursquareAPI;
 import org.example.Controller.MapsController;
 import org.example.Controller.ReviewController;
 
@@ -21,6 +22,7 @@ public class Main {
         app.get("/", ReviewController::getReviewForPlace);
         MapsController mapsController = new MapsController();
         app.get("/test", mapsController::testMapCreation);
+        app.get("/place-foursquare", FoursquareAPI::getFoursquarePlaces);
 
     }
 }
