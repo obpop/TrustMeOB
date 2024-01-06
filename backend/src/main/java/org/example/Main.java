@@ -18,7 +18,14 @@ import java.net.http.HttpResponse;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Javalin app = Javalin.create().start(8080);
+        Javalin app = Javalin.create(config -> {
+            config.plugins.enableCors(cors -> {
+                cors.add(it -> {
+                    it.anyHost();
+                });
+            });
+        }).start(8080);
+
         app.get("/places", ReviewController::getReviewForPlace);
         //app.get("/place-foursquare", FoursquareAPI::getFoursquarePlaces);
 

@@ -30,4 +30,16 @@ function updatePage(data) {
     document.getElementById("strategy").innerHTML = "<h3>Optimeringsstrategier</h3><ul>" + data.strategy.map(strategy => "<li>" + strategy + "</li>").join("") + "</ul>";
 }
 
+async function testReviews(){
+    try {
+        const response = await fetch('http://localhost:8080/places');
+        const data = await response.json();
+
+        console.log(data);
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 
