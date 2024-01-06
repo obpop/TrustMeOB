@@ -1,25 +1,32 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0%;
+    margin: 0;
 }
 
 header {
-    font-family: tahoma;
-    background: #202B3B;
+    font-family: Tahoma;
+    background: rgba(0, 31, 63, 1);
     box-shadow: 0px 5px 100px 5px #202B3B;
     text-align: center;
-    padding: 100px 0;
+    height: 600px;
+}
+
+#title {
+    display: flex;
 }
 
 h1 {
-    margin-top: 0%;
+    margin-top: 0;
     padding-top: 20px;
     color: #ef8104;
     text-align: center;
-    font-size: 64px;
-    font-style: normal;
+    font-size: 40px;
     font-weight: 400;
-    line-height: normal;
+}
+
+h2 {
+    color: white;
+    font-family: Tahoma;
 }
 
 .searchbar {
@@ -51,22 +58,25 @@ main {
 }
 
 #rating img {
- width: 30px;
- height: auto;
+    width: 30px;
+    height: auto;
 }
 
 .data {
     border-radius: 10px;
-    background: #202B3B;
+    background: rgba(0, 31, 63, 1);
 }
 
 h3 {
     margin: 50px;
     color: #f68300;
     font-size: 30px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
+}
+
+.data {
+    margin: 30px;
+    color: white;
 }
 
 #strengths {
@@ -85,4 +95,30 @@ h3 {
     margin: 30px;
     grid-area: 3 / 1 / 4 / 3;
     color: white
+}
+
+#about {
+    grid-area: 2 / 1 / 4 / 4;
+    padding-top: 10px;
+}
+
+.data h3 {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.data ul {
+    list-style-type: none;
+    padding: 20px;
+    margin: 0;
+}
+
+.data li {
+    margin-bottom: 20px;
+}
+
+#about {
+    margin: 30px;
+    color: white;
+
 }
