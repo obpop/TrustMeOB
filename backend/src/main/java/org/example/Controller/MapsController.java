@@ -3,7 +3,7 @@ package org.example.Controller;
 import io.javalin.http.Context;
 
 public class MapsController {
-    String APIKey = ""; //Skriv in API key nedan AIzaSyDtcKuHo3NHAxhi8Kj0rCqYEfKySDXCZpo
+    String APIKey = "AIzaSyDtcKuHo3NHAxhi8Kj0rCqYEfKySDXCZpo"; //Skriv in API key nedan AIzaSyDtcKuHo3NHAxhi8Kj0rCqYEfKySDXCZpo
 
 
     // Tar emot en array med latitude och longitude

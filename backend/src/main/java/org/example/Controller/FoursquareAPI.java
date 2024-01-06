@@ -14,7 +14,7 @@ import java.net.http.HttpResponse;
 
 public class FoursquareAPI {
     public static void getFoursquareTips(Context ctx, String fsq_id, String name) throws IOException, InterruptedException {
-        String API_KEY = ""; //TODO OBS! fsq3ye3chqxy2q+YePOCTGY5FGCdRtvVcWcjSb4oWUXe0t0=
+        String API_KEY = "fsq3ye3chqxy2q+YePOCTGY5FGCdRtvVcWcjSb4oWUXe0t0="; //TODO OBS! fsq3ye3chqxy2q+YePOCTGY5FGCdRtvVcWcjSb4oWUXe0t0=
         // fsq_id = "4b6289b9f964a520bc4a2ae3"; //TODO OBS! 5a187743ccad6b307315e6fe
         String text = "";
 
@@ -55,7 +55,10 @@ public class FoursquareAPI {
     }
 
     public static void getFoursquarePlaces(Context ctx) throws IOException, InterruptedException {
-        String API_KEY = ""; //TODO OBS! fsq3ye3chqxy2q+YePOCTGY5FGCdRtvVcWcjSb4oWUXe0t0=
+        String API_KEY = "fsq3ye3chqxy2q+YePOCTGY5FGCdRtvVcWcjSb4oWUXe0t0="; //TODO OBS! fsq3ye3chqxy2q+YePOCTGY5FGCdRtvVcWcjSb4oWUXe0t0=
+
+        //Get the info from ReviewController json
+
 
         String name = ""; //TODO OBS! Grand Hotel Lund
       //  String address = ""; //TODO OBS! Bantorget 1

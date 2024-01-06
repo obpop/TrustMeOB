@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class ReviewController {
     public static void getReviewForPlace(Context ctx) throws IOException, InterruptedException {
 
-        String apiKey = "";
+        String apiKey = "AIzaSyDtcKuHo3NHAxhi8Kj0rCqYEfKySDXCZpo";
         String placeId = "";
         String textSearchUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=grand+hotel+lund&key=" + apiKey;
         double lat = 0;
@@ -105,6 +105,8 @@ public class ReviewController {
 
             String jsonString = json.toString();
             System.out.println(jsonString);
+
+            FoursquareAPI.getFoursquarePlaces(ctx.result(jsonString));
             ctx.result(jsonString);
 
         } else {
