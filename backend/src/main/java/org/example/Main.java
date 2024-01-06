@@ -21,7 +21,5 @@ public class Main {
         app.get("/", ReviewController::getReviewForPlace);
         MapsController mapsController = new MapsController();
         app.get("/test", mapsController::testMapCreation);
-
     }
 }
-
