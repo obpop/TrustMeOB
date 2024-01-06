@@ -28,7 +28,5 @@ public class Main {
 
         //app.post("/search", );
         app.get("/places", ReviewController::getReviewForPlace);
-        //app.get("/place-foursquare", FoursquareAPI::getFoursquarePlaces);
-
     }
 }
