@@ -1,4 +1,4 @@
-function getReviewForPlace() {
+async function getReviewForPlace() {
     var companyName = document.getElementById("companyName").value;
 
     if (!companyName) {
@@ -32,7 +32,7 @@ function updatePage(data) {
 
 async function testReviews(){
     try {
-        const response = await fetch('http://localhost:8080/places');
+        const response = await fetch('http://localhost:8080/places/grandhotel');
         const data = await response.json();
 
         console.log(data);
