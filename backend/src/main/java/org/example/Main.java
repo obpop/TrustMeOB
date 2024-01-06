@@ -1,6 +1,7 @@
 package org.example;
 
 import io.javalin.Javalin;
+import org.example.Controller.FoursquareAPI;
 import org.example.Controller.MapsController;
 import org.example.Controller.ReviewController;
 
@@ -19,8 +20,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Javalin app = Javalin.create().start(8080);
         app.get("/", ReviewController::getReviewForPlace);
-        MapsController mapsController = new MapsController();
-        app.get("/test", mapsController::testMapCreation);
+        app.get("/place-foursquare", FoursquareAPI::getFoursquarePlaces);
 
     }
 }

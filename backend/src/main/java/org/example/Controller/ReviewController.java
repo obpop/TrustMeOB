@@ -83,7 +83,7 @@ public class ReviewController {
         JsonArray reviews = getReviews(ctx, placeId, apiKey, lat, lng);
 
         MapsController mapsController = new MapsController();
-        mapsController.handleMapCreation(new double[]{lat, lng}, ctx);
+        String map = mapsController.handleMapCreation(new double[]{lat, lng});
 
         if (response.statusCode() == 200) {
             JsonObject json = new JsonObject();
@@ -92,10 +92,15 @@ public class ReviewController {
             json.addProperty("address", address);
             json.addProperty("lat", lat);
             json.addProperty("lng", lng);
+
             json.addProperty("northwestLat", northwestLat);
             json.addProperty("northwestLng", northwestLng);
             json.addProperty("southwestLat", southwestLat);
             json.addProperty("southwestLng", southwestLng);
+
+            json.addProperty("placeId", placeId);
+            json.addProperty("map", map);
+
             json.add("reviews", reviews);
 
             String jsonString = json.toString();
