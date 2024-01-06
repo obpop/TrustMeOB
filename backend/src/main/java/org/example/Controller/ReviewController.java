@@ -15,12 +15,17 @@ import java.util.ArrayList;
 public class ReviewController {
     public static void getReviewForPlace(Context ctx) throws IOException, InterruptedException {
 
-        String apiKey = "";
+        String apiKey = "AIzaSyDtcKuHo3NHAxhi8Kj0rCqYEfKySDXCZpo";
         String placeId = "";
         String textSearchUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=grand+hotel+lund&key=" + apiKey;
         double lat = 0;
         double lng = 0;
+        double northwestLat = 0;
+        double northwestLng = 0;
+        double southwestLat = 0;
+        double southwestLng = 0;
         String name = "";
+        String address = "";
 
         HttpResponse<String> response;
 
@@ -45,9 +50,19 @@ public class ReviewController {
             lat = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("location").getAsJsonObject().get("lat").getAsDouble();
             lng = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("location").getAsJsonObject().get("lng").getAsDouble();
 
+            //Get the address of the place
+            address = results.get(0).getAsJsonObject().get("formatted_address").getAsString();
+
             //Get the coordinates of the place
             System.out.println(lat);
             System.out.println(lng);
+
+            //Get the northwestern and southwestern coordinates of the place
+            northwestLat = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("northeast").getAsJsonObject().get("lat").getAsDouble();
+            northwestLng = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("northeast").getAsJsonObject().get("lng").getAsDouble();
+            southwestLat = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("southwest").getAsJsonObject().get("lat").getAsDouble();
+            southwestLng = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("southwest").getAsJsonObject().get("lng").getAsDouble();
+
 
         }
 
@@ -73,9 +88,14 @@ public class ReviewController {
         if (response.statusCode() == 200) {
             JsonObject json = new JsonObject();
             json.addProperty("name", name);
+            json.addProperty("placeId", placeId);
+            json.addProperty("address", address);
             json.addProperty("lat", lat);
             json.addProperty("lng", lng);
-            json.addProperty("placeId", placeId);
+            json.addProperty("northwestLat", northwestLat);
+            json.addProperty("northwestLng", northwestLng);
+            json.addProperty("southwestLat", southwestLat);
+            json.addProperty("southwestLng", southwestLng);
             json.add("reviews", reviews);
 
             String jsonString = json.toString();
