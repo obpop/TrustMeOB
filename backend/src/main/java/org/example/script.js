@@ -32,7 +32,7 @@ function updatePage(data) {
 
 async function testReviews(){
     try {
-        const response = await fetch('http://localhost:8080/places/grandhotel');
+        const response = await fetch('http://localhost:8080/places');
         const data = await response.json();
 
         console.log(data);

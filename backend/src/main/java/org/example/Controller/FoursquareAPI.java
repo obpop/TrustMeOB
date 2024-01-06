@@ -44,11 +44,6 @@ public class FoursquareAPI {
             foursquareJson.get("foursquare").getAsJsonObject().addProperty("name", name);
             foursquareJson.get("foursquare").getAsJsonObject().add("texts", textArray);
 
-            //JsonObject json = new JsonObject();
-            //json.addProperty("fsq_id", fsq_id);
-            //json.addProperty("name", name);
-            //json.add("texts", textArray);
-
             //String jsonString = json.toString();
             System.out.println(foursquareJson.toString());
             ctx.result(foursquareJson.toString());

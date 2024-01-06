@@ -64,8 +64,6 @@ public class ReviewController {
             northEastLng = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("northeast").getAsJsonObject().get("lng").getAsDouble();
             southWestLat = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("southwest").getAsJsonObject().get("lat").getAsDouble();
             southWestLng = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("southwest").getAsJsonObject().get("lng").getAsDouble();
-
-
         }
 
         //Get the place id
@@ -165,4 +163,8 @@ public class ReviewController {
         return reviewsJsonArray;
     }
 
+    public static void search(Context ctx){
+
+
+    }
 }
