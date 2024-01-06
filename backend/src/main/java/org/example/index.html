@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TrustME</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <a href="startsida.html"> 
+            <h1>TrustME</h1>
+        </a>
+        <input class="searchbar" type="text" placeholder="Sök företagsnamn" id="companyName">
+        <button onclick="getReviewForPlace()">Sök</button>
+    </header>
+    <main>
+        <div id="company-rating-container">
+            <div id="company">
+                <p>Märta inc</p>
+            </div>
+            <section id="rating">
+                <img src="views/images/star.png" alt="Star">
+            </section>
+        </div>
+        <div id="strengths" class="data">
+            <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
+        </div>
+        <div id="flaws" class="data">
+            <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
+        </div>
+        <div id="strategy" class="data">
+            <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
+        </div>
+    </main>
+    <footer>
+        <p>Johan Holmberg i vårt hjärta</p>
+    </footer>
+</body>
+
+</html>
+
