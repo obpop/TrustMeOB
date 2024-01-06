@@ -22,14 +22,11 @@ h1 {
     line-height: normal;
 }
 
-.searchbar {
-    padding-left: 10px;
-    border-radius: 20px;
-    background: #F6F6F6;
-    width: 45%;
-    max-width: 500px;
-    height: 50px;
+h2 {
+    color: white
 }
+
+
 
 main {
     display: grid;
