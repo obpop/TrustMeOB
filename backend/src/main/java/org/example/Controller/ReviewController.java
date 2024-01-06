@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class ReviewController {
     public static void getReviewForPlace(Context ctx) throws IOException, InterruptedException {
 
-        String apiKey = "";
+        String apiKey = "AIzaSyDtcKuHo3NHAxhi8Kj0rCqYEfKySDXCZpo";
         String placeId = "";
         String textSearchUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=grand+hotel+lund&key=" + apiKey;
         double lat = 0;
@@ -68,7 +68,7 @@ public class ReviewController {
         JsonArray reviews = getReviews(ctx, placeId, apiKey, lat, lng);
 
         MapsController mapsController = new MapsController();
-        mapsController.handleMapCreation(new double[]{lat, lng}, ctx);
+        String map = mapsController.handleMapCreation(new double[]{lat, lng});
 
         if (response.statusCode() == 200) {
             JsonObject json = new JsonObject();
@@ -76,6 +76,7 @@ public class ReviewController {
             json.addProperty("lat", lat);
             json.addProperty("lng", lng);
             json.addProperty("placeId", placeId);
+            json.addProperty("map", map);
             json.add("reviews", reviews);
 
             String jsonString = json.toString();

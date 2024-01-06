@@ -58,9 +58,9 @@ public class FoursquareAPI {
         String API_KEY = ""; //TODO OBS! fsq3ye3chqxy2q+YePOCTGY5FGCdRtvVcWcjSb4oWUXe0t0=
 
         String name = ""; //TODO OBS! Grand Hotel Lund
-        String address = ""; //TODO OBS! Bantorget 1
-        String city = ""; //TODO OBS! Lund
-        String cc = ""; //TODO OBS! SE
+      //  String address = ""; //TODO OBS! Bantorget 1
+      //  String city = ""; //TODO OBS! Lund
+      //  String cc = ""; //TODO OBS! SE
         double northEastLAT = 00; //55.70521002989272
         double northEastLNG = 00; //13.19029362989272
 
@@ -70,7 +70,12 @@ public class FoursquareAPI {
         String fsq_id = "";
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://api.foursquare.com/v3/places/search?query=grand%20hotel%20lund&" +
+                .uri(URI.create(
+                       // "https://api.foursquare.com/v3/places/search?query=grand%20hotel%20lund&" +
+                       //         "ne=" + northEastLAT +  "%2C" + northEastLNG + "&sw=" + southWestLAT +"%2C" + southWestLNG +"&limit=1"
+
+
+                        "https://api.foursquare.com/v3/places/search?query=grand%20hotel%20lund&" +
                         "ne=55.70521002989272%2C13.19029362989272&sw=55.7025103701072%2C13.18759397010728&limit=1"))
                         //TODO fixa att det går att söka på ett ställe + ne och sw parameterar från google places
 
@@ -102,4 +107,5 @@ public class FoursquareAPI {
             ctx.status(500).result("Internal Server Error");
         }
     }
+
 }
