@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import io.javalin.http.Context;
+import org.example.ConfigLoader;
 
 import java.io.IOException;
 import java.net.URI;
@@ -13,8 +14,14 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class FoursquareAPI {
+
+    private static final String API_KEY;
+    static {
+        ConfigLoader loader = new ConfigLoader();
+        API_KEY = loader.getApiKey("foursquare.api.key");
+    }
+
     public static void getFoursquareTips(Context ctx, String fsq_id, String name, JsonObject foursquareJson) throws IOException, InterruptedException {
-        String API_KEY = "";
         String text = "";
         int counter = 1;
 
@@ -55,13 +62,10 @@ public class FoursquareAPI {
     }
 
     public static void getFoursquarePlaces(Context ctx, JsonObject json) throws IOException, InterruptedException {
-        String API_KEY = "";
 
         //Get the info from ReviewController json
-
         String name = json.get("google").getAsJsonObject().get("name").getAsString(); //TODO OBS! Grand Hotel Lund
 
-        //  String cc = ""; //TODO OBS! SE
         double northEastLAT = json.get("google").getAsJsonObject().get("northEastLat").getAsDouble(); //55.70521002989272
         double northEastLNG = json.get("google").getAsJsonObject().get("northEastLng").getAsDouble();; //13.19029362989272
 

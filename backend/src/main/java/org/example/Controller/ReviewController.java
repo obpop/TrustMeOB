@@ -5,6 +5,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import io.javalin.http.Context;
+import org.example.ConfigLoader;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -13,13 +15,18 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
 public class ReviewController {
+    private static final String API_KEY;
+    static {
+        ConfigLoader loader = new ConfigLoader();
+        API_KEY = loader.getApiKey("google.api.key");
+    }
     public static void getReviewForPlace(Context ctx) throws IOException, InterruptedException {
 
         String pathPlaceName = "";
 
-        String apiKey = "";
+       // String apiKey = "";
         String placeId = "";
-        String textSearchUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=grand+hotel+lund&key=" + apiKey;
+        String textSearchUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=grand+hotel+lund&key=" + API_KEY;
         double lat = 0;
         double lng = 0;
         double northEastLat = 0;
@@ -82,7 +89,7 @@ public class ReviewController {
         }
 
         //Get the reviews of the place
-        JsonArray reviews = getReviews(ctx, placeId, apiKey, lat, lng);
+        JsonArray reviews = getReviews(ctx, placeId, API_KEY, lat, lng);
 
         MapsController mapsController = new MapsController();
         String map = mapsController.handleMapCreation(new double[]{lat, lng});
@@ -126,8 +133,8 @@ public class ReviewController {
     }
 
     //This method gets the reviews of the place using the place id
-    public static JsonArray getReviews(Context ctx, String placeId, String apiKey, double lat, double lng){
-        String detailsUrl = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeId + "&key=" + apiKey;
+    public static JsonArray getReviews(Context ctx, String placeId, String API_KEY, double lat, double lng){
+        String detailsUrl = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeId + "&key=" + API_KEY;
         JsonArray reviewsJsonArray = new JsonArray();
 
         HttpRequest request = HttpRequest.newBuilder()

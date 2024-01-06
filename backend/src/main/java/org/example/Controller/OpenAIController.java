@@ -1,4 +1,6 @@
 package org.example.Controller;
+import org.example.ConfigLoader;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,6 +10,11 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class OpenAIController {
+    private static final String API_KEY;
+    static {
+        ConfigLoader loader = new ConfigLoader();
+        API_KEY = loader.getApiKey("openai.api.key");
+    }
 
     /*
     public static void main(String[] args) {
@@ -43,14 +50,14 @@ public class OpenAIController {
 
     public static String chatGPT(String message) {
         String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = ""; //Write API-Key here
+        //String apiKey = ""; //Write API-Key here
         String model = "gpt-3.5-turbo";
 
         try {
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("POST");
-            con.setRequestProperty("Authorization", "Bearer " + apiKey);
+            con.setRequestProperty("Authorization", "Bearer " + API_KEY);
             con.setRequestProperty("Content-Type", "application/json");
 
             String body = "{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message + "\"}]}";
