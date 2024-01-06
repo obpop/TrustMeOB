@@ -4,8 +4,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>TrustME</title>
-        <link href="style.css" rel="stylesheet" />
-        <script src="script.js" defer></script>
+        <link href="static/style.css" rel="stylesheet" />
+        <script src="static/script.js" defer></script>
     </head>
 
     <body>
@@ -13,13 +13,14 @@
             <a href="startsida.html">
                 <h1>TrustME</h1>
             </a>
-            <input
-                class="searchbar"
-                type="text"
-                placeholder="Sök företagsnamn"
-                id="companyName"
-            />
-            <button onclick="testReviews()">Sök</button>
+            <div class="searchbar">
+                <div class="search-container">
+                    <input class="search-input" type="text" placeholder="Sök företagsnamn" id="companyName">
+                    <button class="search-button" onclick="testReviews()">
+                        <img class="search-icon" src="images/search.png" alt="Sök">
+                    </button>
+                </div>
+            </div>            
         </header>
         <main>
             <div id="placeinfo">
