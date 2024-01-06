@@ -15,15 +15,17 @@ import java.util.ArrayList;
 public class ReviewController {
     public static void getReviewForPlace(Context ctx) throws IOException, InterruptedException {
 
+        String pathPlaceName = "";
+
         String apiKey = "AIzaSyDtcKuHo3NHAxhi8Kj0rCqYEfKySDXCZpo";
         String placeId = "";
         String textSearchUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=grand+hotel+lund&key=" + apiKey;
         double lat = 0;
         double lng = 0;
-        double northwestLat = 0;
-        double northwestLng = 0;
-        double southwestLat = 0;
-        double southwestLng = 0;
+        double northEastLat = 0;
+        double northEastLng = 0;
+        double southWestLat = 0;
+        double southWestLng = 0;
         String name = "";
         String address = "";
 
@@ -58,10 +60,10 @@ public class ReviewController {
             System.out.println(lng);
 
             //Get the northwestern and southwestern coordinates of the place
-            northwestLat = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("northeast").getAsJsonObject().get("lat").getAsDouble();
-            northwestLng = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("northeast").getAsJsonObject().get("lng").getAsDouble();
-            southwestLat = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("southwest").getAsJsonObject().get("lat").getAsDouble();
-            southwestLng = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("southwest").getAsJsonObject().get("lng").getAsDouble();
+            northEastLat = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("northeast").getAsJsonObject().get("lat").getAsDouble();
+            northEastLng = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("northeast").getAsJsonObject().get("lng").getAsDouble();
+            southWestLat = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("southwest").getAsJsonObject().get("lat").getAsDouble();
+            southWestLng = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("southwest").getAsJsonObject().get("lng").getAsDouble();
 
 
         }
@@ -87,26 +89,34 @@ public class ReviewController {
 
         if (response.statusCode() == 200) {
             JsonObject json = new JsonObject();
-            json.addProperty("name", name);
-            json.addProperty("placeId", placeId);
-            json.addProperty("address", address);
-            json.addProperty("lat", lat);
-            json.addProperty("lng", lng);
+            JsonObject google = new JsonObject();
+            JsonObject foursquare = new JsonObject();
 
-            json.addProperty("northwestLat", northwestLat);
-            json.addProperty("northwestLng", northwestLng);
-            json.addProperty("southwestLat", southwestLat);
-            json.addProperty("southwestLng", southwestLng);
 
-            json.addProperty("placeId", placeId);
-            json.addProperty("map", map);
+            google.addProperty("name", name);
+            google.addProperty("placeId", placeId);
+            google.addProperty("address", address);
+            google.addProperty("lat", lat);
+            google.addProperty("lng", lng);
 
-            json.add("reviews", reviews);
+            google.addProperty("northEastLat", northEastLat);
+            google.addProperty("northEastLng", northEastLng);
+            google.addProperty("southWestLat", southWestLat);
+            google.addProperty("southWestLng", southWestLng);
+
+            google.addProperty("placeId", placeId);
+            google.addProperty("map", map);
+
+            google.add("reviews", reviews);
+
+            json.add("google", google);
+            json.add("foursquare", foursquare);
+
+            FoursquareAPI.getFoursquarePlaces(ctx, json);
 
             String jsonString = json.toString();
             System.out.println(jsonString);
 
-            FoursquareAPI.getFoursquarePlaces(ctx.result(jsonString));
             ctx.result(jsonString);
 
         } else {
@@ -154,4 +164,5 @@ public class ReviewController {
 
         return reviewsJsonArray;
     }
+
 }

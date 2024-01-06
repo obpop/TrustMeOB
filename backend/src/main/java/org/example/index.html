@@ -1,50 +1,72 @@
 <!DOCTYPE html>
 <html lang="sv">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>TrustME</title>
+        <link href="style.css" rel="stylesheet" />
+        <script src="script.js" defer></script>
+    </head>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TrustME</title>
-    <link href="style.css" rel="stylesheet">
-    <script src="script.js" defer></script>
-</head>
-
-<body>
-    <header>
-        <a href="startsida.html"> 
-            <h1>TrustME</h1>
-        </a>
-        <input class="searchbar" type="text" placeholder="Sök företagsnamn" id="companyName">
-        <button onclick="testReviews()">Sök</button>
-    </header>
-    <main>
-        <div id="placeinfo">
-            <h3>Platsinformation</h3>
-            <img id="mapImage" src="" alt="Karta" style="width: 400px; height: 400px;">
-            <script src="script.js"></script>
-        </div>
-        <div id="company-rating-container">
-            <div id="company">
-                <p id="marta">Märta inc</p>
+    <body>
+        <header>
+            <a href="startsida.html">
+                <h1>TrustME</h1>
+            </a>
+            <input
+                class="searchbar"
+                type="text"
+                placeholder="Sök företagsnamn"
+                id="companyName"
+            />
+            <button onclick="testReviews()">Sök</button>
+        </header>
+        <main>
+            <div id="placeinfo">
+                <h3>Platsinformation</h3>
+                <img
+                    id="mapImage"
+                    src=""
+                    alt="Karta"
+                    style="width: 400px; height: 400px"
+                />
+                <script src="script.js"></script>
             </div>
-            <section id="rating">
-                <img src="views/images/star.png" alt="Star">
-            </section>
-        </div>
-        <div id="strengths" class="data">
-            <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
-        </div>
-        <div id="flaws" class="data">
-            <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
-        </div>
-        <div id="strategy" class="data">
-            <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
-        </div>
-    </main>
-    <footer>
-        <p>Johan Holmberg i vårt hjärta</p>
-    </footer>
-</body>
+            <div id="company-rating-container">
+                <div id="company">
+                    <p id="name"></p>
+                </div>
+                <section id="rating">
+                    <img src="views/images/star.png" alt="Star" />
+                </section>
+            </div>
+            <div id="strengths" class="data">
+                <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
+                <p>hejaheja</p>
+            </div>
+            <div id="flaws" class="data">
+                <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
+                <p>dummadumma</p>
+            </div>
+            <div id="strategy" class="data">
+                <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
+                <p>okej hörni</p>
+            </div>
 
+            <div id="reviewsdata">
+                <div id="google-info">
+                    <h2>Google Information</h2>
+                    <p id="google-reviews">Recensioner:</p>
+                </div>
+
+                <div id="foursquare-info">
+                    <h2>Foursquare Information</h2>
+                    <p id="foursquare-reviews">Recensioner:</p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>Johan Holmberg i vårt hjärta</p>
+        </footer>
+    </body>
 </html>
-
