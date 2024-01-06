@@ -17,7 +17,7 @@ public class ReviewController {
 
         String pathPlaceName = "";
 
-        String apiKey = "AIzaSyDtcKuHo3NHAxhi8Kj0rCqYEfKySDXCZpo";
+        String apiKey = "";
         String placeId = "";
         String textSearchUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=grand+hotel+lund&key=" + apiKey;
         double lat = 0;
@@ -56,8 +56,8 @@ public class ReviewController {
             address = results.get(0).getAsJsonObject().get("formatted_address").getAsString();
 
             //Get the coordinates of the place
-            System.out.println(lat);
-            System.out.println(lng);
+            System.out.println("LAT-Google_Map: " + lat);
+            System.out.println("LONG-Google_Map: " + lng);
 
             //Get the northwestern and southwestern coordinates of the place
             northEastLat = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("northeast").getAsJsonObject().get("lat").getAsDouble();
@@ -76,7 +76,7 @@ public class ReviewController {
                 JsonObject resultObject = result.getAsJsonObject();
                 placeId = resultObject.get("place_id").getAsString();
 
-                System.out.println("Place id: " + placeId);
+                System.out.println("(GoogleAPI) PLACE_ID: " + placeId);
                 System.out.println();
             }
         }
