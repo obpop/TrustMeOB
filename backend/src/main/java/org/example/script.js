@@ -28,14 +28,13 @@ function updatePage(data) {
     // Uppdatera sidan med Google-information
     const googleData = data.google;
     document.getElementById("name").innerText = googleData.name
-    document.getElementById("google-address").innerText = "Adress: " + googleData.address;
-    document.getElementById("google-address").innerText = "Recensioner: " + googleData.reviews;
-
+    document.getElementById("google-reviews").innerText = "Recensioner: " + googleData.reviews;
+    
     // Uppdatera sidan med Foursquare-information
     const foursquareData = data.foursquare;
-    document.getElementById("foursquare-address").innerText = "Recensioner: " + foursquareData.texts;
-}
-
+    document.getElementById("foursquare-reviews").innerText = "Adress: " + foursquareData.texts;
+    }
+    
 
 async function testReviews(){
     try {
