@@ -3,29 +3,21 @@ package org.example.Controller;
 import io.javalin.http.Context;
 
 public class MapsController {
-    String APIKey = ""; //Skriv in API key nedan
+    String APIKey = "AIzaSyDtcKuHo3NHAxhi8Kj0rCqYEfKySDXCZpo"; //Skriv in API key nedan AIzaSyDtcKuHo3NHAxhi8Kj0rCqYEfKySDXCZpo
 
-    //Test metod nedan
-    //TODO: Ta bort när resten av koden fungerar
-    public void testMapCreation(Context ctx) {
-        double[] testCoordinates = new double[]{55.61427531137008,12.989121348455722};
-        handleMapCreation(testCoordinates, ctx);
-    }
 
     // Tar emot en array med latitude och longitude
-    public void handleMapCreation(double[] coordinates, Context ctx) {
+    public String handleMapCreation(double[] coordinates) {
         if (coordinates == null || coordinates.length != 2) {
-            ctx.status(400).result("400: False coordinates");
-            return;
-        } else if (APIKey == null || APIKey.isEmpty()) {
-            ctx.status(503).result("503: API Key is not configured correctly");
-            return;
+            return "Error: False coordinates";
+        } if (APIKey == null || APIKey.isEmpty()) {
+            return "Error: API Key is not configured correctly";
         } else {
             try {
                 String mapUrl = generateStaticMapUrl(coordinates[0], coordinates[1]);
-                ctx.result(mapUrl);
+                return mapUrl;
             } catch (Exception e) {
-                ctx.status(500).result("500: Internal server problem: " + e.getMessage());
+                return "Error: Internal server problem: " + e.getMessage();
             }
         }
     }
