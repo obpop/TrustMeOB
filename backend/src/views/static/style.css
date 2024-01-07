@@ -294,3 +294,15 @@ h3 {
     /* Om oss rutan - avstånd mellan stycken */
     margin-bottom: 20px;
 }
+
+#Progress {
+    width: 100%;
+    background-color: grey;
+}
+
+#progressBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+}
+
