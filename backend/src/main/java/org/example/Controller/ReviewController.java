@@ -88,6 +88,19 @@ public class ReviewController {
 
         //Get the reviews of the place
         JsonArray reviews = getReviews(ctx, placeId, API_KEY, lat, lng);
+        ArrayList<String> openAIResponse = new ArrayList<>();
+
+        for (JsonElement review : reviews){
+            String reviewText = review.getAsString();
+            openAIResponse.add(reviewText);
+        }
+
+        ArrayList<String> AIReview = OpenAIController.getAIReviews(ctx, openAIResponse);
+        String[] AIReviewArray = new String[AIReview.size()];
+
+        for (int i = 0; i < AIReview.size(); i++){
+            AIReviewArray[i] = AIReview.get(i).toString();
+        }
 
         MapsController mapsController = new MapsController();
         String map = mapsController.handleMapCreation(new double[]{lat, lng});
@@ -96,6 +109,7 @@ public class ReviewController {
             JsonObject json = new JsonObject();
             JsonObject google = new JsonObject();
             JsonObject foursquare = new JsonObject();
+            JsonObject openAI = new JsonObject();
 
 
             google.addProperty("name", name);
@@ -114,10 +128,19 @@ public class ReviewController {
 
             google.add("reviews", reviews);
 
+            //OpenAI properties
+            openAI.addProperty("strengths", AIReviewArray[0]);
+            openAI.addProperty("weaknesses", AIReviewArray[1]);
+            openAI.addProperty("action_points", AIReviewArray[2]);
+
             json.add("google", google);
             json.add("foursquare", foursquare);
+            json.add("openAI", openAI);
+
+
 
             FoursquareAPI.getFoursquarePlaces(ctx, json);
+
 
             String jsonString = json.toString();
             System.out.println(jsonString);
@@ -162,6 +185,7 @@ public class ReviewController {
             for (String review : reviewsArray){
                 reviewsJsonArray.add(review);
             }
+
 
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

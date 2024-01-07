@@ -6,14 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1e8c2ee1-b5f9-410f-a247-fc8c8ac0f7a8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/OpenAIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/OpenAIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/ReviewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
-    <list id="06923b90-60dc-4324-850a-b8b2ee456228" name="Changes by Oliver" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/FoursquareAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/FoursquareAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/ReviewController.java" afterDir="false" />
-    </list>
+    <list id="06923b90-60dc-4324-850a-b8b2ee456228" name="Changes by Oliver" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,14 +31,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/org/example/Controller/ReviewController.java">
-      <ranges>
-        <range start1="66" end1="68" start2="66" end2="66" changelist="06923b90-60dc-4324-850a-b8b2ee456228" />
-        <range start1="167" end1="167" start2="165" end2="169" changelist="1e8c2ee1-b5f9-410f-a247-fc8c8ac0f7a8" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -123,6 +113,7 @@
       <workItem from="1704530923976" duration="26000" />
       <workItem from="1704530957689" duration="2983000" />
       <workItem from="1704538597519" duration="298000" />
+      <workItem from="1704617898270" duration="2382000" />
     </task>
     <servers />
   </component>

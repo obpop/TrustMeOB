@@ -3,6 +3,7 @@ package org.example;
 import io.javalin.Javalin;
 import org.example.Controller.FoursquareAPI;
 import org.example.Controller.MapsController;
+import org.example.Controller.OpenAIController;
 import org.example.Controller.ReviewController;
 
 import java.io.BufferedReader;

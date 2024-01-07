@@ -1,4 +1,5 @@
 package org.example.Controller;
+import io.javalin.http.Context;
 import org.example.ConfigLoader;
 
 import java.io.BufferedReader;
@@ -34,16 +35,21 @@ public class OpenAIController {
 
      */
 
-    public static ArrayList<String> getAIReviews(ArrayList<String> reviews) {
+    public static ArrayList<String> getAIReviews(Context ctx, ArrayList<String> reviews) {
         ArrayList<String> AIReviews = new ArrayList<>();
+        StringBuilder reviewsString = new StringBuilder();
+
+        for (String review : reviews) {
+            reviewsString.append(review).append("\n");
+        }
 
         String promptOne = "Based on the following reviews, write 5 strengths this business has. Write only the 5 points, with the format [number] + [.], nothing else: ";
         String promptTwo = "Based on the reviews, write 5 weaknesses this business has. Write only the 5 points, with the format [number] + [.], nothing else: ";
         String promptThree = "Based on the reviews, write 5 action points to improve the business. Write only the 5 points, with the format [number] + [.], nothing else: ";
 
-        AIReviews.add(chatGPT(promptOne + reviews.toString()));
-        AIReviews.add(chatGPT(promptTwo + reviews.toString()));
-        AIReviews.add(chatGPT(promptThree + reviews.toString()));
+        AIReviews.add(chatGPT(promptOne + reviewsString.toString()));
+        AIReviews.add(chatGPT(promptTwo + reviewsString.toString()));
+        AIReviews.add(chatGPT(promptThree + reviewsString.toString()));
 
         return AIReviews;
     }
