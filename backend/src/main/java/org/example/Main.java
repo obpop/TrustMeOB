@@ -1,10 +1,7 @@
 package org.example;
 
 import io.javalin.Javalin;
-import org.example.Controller.FoursquareAPI;
-import org.example.Controller.MapsController;
-import org.example.Controller.OpenAIController;
-import org.example.Controller.ReviewController;
+import org.example.Controller.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,5 +25,6 @@ public class Main {
         }).start(8080);
 
         app.get("/places", ReviewController::getReviewForPlace);
+        app.get("/openai", OpenAIController::test);
     }
 }

@@ -1,6 +1,6 @@
 package org.example.Controller;
+import com.google.gson.JsonObject;
 import io.javalin.http.Context;
-import org.example.ConfigLoader;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,11 +11,6 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class OpenAIController {
-    private static final String API_KEY;
-    static {
-        ConfigLoader loader = new ConfigLoader();
-        API_KEY = loader.getApiKey("openai.api.key");
-    }
 
     /*
     public static void main(String[] args) {
@@ -35,44 +30,38 @@ public class OpenAIController {
 
      */
 
-    public static ArrayList<String> getAIReviews(Context ctx, ArrayList<String> reviews) {
+    public static ArrayList<String> getAIReviews(ArrayList<String> reviews) {
         ArrayList<String> AIReviews = new ArrayList<>();
-        StringBuilder reviewsString = new StringBuilder();
-
-        for (String review : reviews) {
-            reviewsString.append(review).append("\n");
-        }
 
         String promptOne = "Based on the following reviews, write 5 strengths this business has. Write only the 5 points, with the format [number] + [.], nothing else: ";
-        String promptTwo = "Based on the reviews, write 5 weaknesses this business has. Write only the 5 points, with the format [number] + [.], nothing else: ";
-        String promptThree = "Based on the reviews, write 5 action points to improve the business. Write only the 5 points, with the format [number] + [.], nothing else: ";
+        //String promptTwo = "Based on the reviews, write 5 weaknesses this business has. Write only the 5 points, with the format [number] + [.], nothing else: ";
+        //String promptThree = "Based on the reviews, write 5 action points to improve the business. Write only the 5 points, with the format [number] + [.], nothing else: ";
 
-        AIReviews.add(chatGPT(promptOne + reviewsString.toString()));
-        AIReviews.add(chatGPT(promptTwo + reviewsString.toString()));
-        AIReviews.add(chatGPT(promptThree + reviewsString.toString()));
+        AIReviews.add(chatGPT(promptOne + reviews.get(0)));
+        //AIReviews.add(chatGPT(promptTwo + reviews.get(1)));
+        //AIReviews.add(chatGPT(promptThree + reviews.get(2)));
 
         return AIReviews;
     }
 
     public static String chatGPT(String message) {
         String url = "https://api.openai.com/v1/chat/completions";
-        //String apiKey = ""; //Write API-Key here
+        String apiKey = ""; //Write API-Key here
         String model = "gpt-3.5-turbo";
 
         try {
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("POST");
-            con.setRequestProperty("Authorization", "Bearer " + API_KEY);
+            con.setRequestProperty("Authorization", "Bearer " + apiKey);
             con.setRequestProperty("Content-Type", "application/json");
 
-            String body = "{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message + "\"}]}";
+            String body = "{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message.replace("\n", "") + "\"}]}";
             con.setDoOutput(true);
             OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream());
             writer.write(body);
             writer.flush();
             writer.close();
-
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
@@ -82,6 +71,42 @@ public class OpenAIController {
             in.close();
 
             return extractContentFromResponse(response.toString());
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void test(Context ctx) {
+        String url = "https://api.openai.com/v1/chat/completions";
+        String apiKey = ""; //Write API-Key here
+        String model = "gpt-3.5-turbo";
+
+        try {
+            URL obj = new URL(url);
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+            con.setRequestMethod("POST");
+            con.setRequestProperty("Authorization", "Bearer " + apiKey);
+            con.setRequestProperty("Content-Type", "application/json");
+
+            String body = "{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + "Hello, how are you?" + "\"}]}";
+            con.setDoOutput(true);
+            OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream());
+            writer.write(body);
+            writer.flush();
+            writer.close();
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            JsonObject json = new JsonObject();
+            json.addProperty("response", extractContentFromResponse(response.toString()));
+
+            ctx.json(json.toString());
 
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -1,12 +1,8 @@
 package org.example.Controller;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import io.javalin.http.Context;
 import org.example.ConfigLoader;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -16,15 +12,17 @@ import java.util.ArrayList;
 
 public class ReviewController {
     private static final String API_KEY;
+
     static {
         ConfigLoader loader = new ConfigLoader();
         API_KEY = loader.getApiKey("google.api.key");
     }
+
     public static void getReviewForPlace(Context ctx) throws IOException, InterruptedException {
 
         String pathPlaceName = "";
 
-       // String apiKey = "";
+        // String apiKey = "";
         String placeId = "";
         String textSearchUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=grand+hotel+lund&key=" + API_KEY;
         double lat = 0;
@@ -47,10 +45,10 @@ public class ReviewController {
 
         //Get the name of the place
         JsonObject jsonObject = JsonParser.parseString(response.body()).getAsJsonObject();
-        if (jsonObject.has("results")){
+        if (jsonObject.has("results")) {
             JsonArray results = jsonObject.getAsJsonArray("results");
 
-            for (JsonElement result : results){
+            for (JsonElement result : results) {
                 JsonObject resultObject = result.getAsJsonObject();
                 name = resultObject.get("name").getAsString();
             }
@@ -74,10 +72,10 @@ public class ReviewController {
         }
 
         //Get the place id
-        if (jsonObject.has("results")){
+        if (jsonObject.has("results")) {
             JsonArray results = jsonObject.getAsJsonArray("results");
 
-            for (JsonElement result : results){
+            for (JsonElement result : results) {
                 JsonObject resultObject = result.getAsJsonObject();
                 placeId = resultObject.get("place_id").getAsString();
 
@@ -88,19 +86,20 @@ public class ReviewController {
 
         //Get the reviews of the place
         JsonArray reviews = getReviews(ctx, placeId, API_KEY, lat, lng);
-        ArrayList<String> openAIResponse = new ArrayList<>();
 
-        for (JsonElement review : reviews){
+        //OpenAI sending of reviews
+        ArrayList<String> openAIResponse = new ArrayList<>();
+        StringBuilder reviewsString = new StringBuilder();
+
+        for (JsonElement review : reviews) {
             String reviewText = review.getAsString();
             openAIResponse.add(reviewText);
+            reviewsString.append(reviewText).append(" ");
         }
 
-        ArrayList<String> AIReview = OpenAIController.getAIReviews(ctx, openAIResponse);
-        String[] AIReviewArray = new String[AIReview.size()];
 
-        for (int i = 0; i < AIReview.size(); i++){
-            AIReviewArray[i] = AIReview.get(i).toString();
-        }
+        ArrayList<String> AIReview = getAIReviews(openAIResponse);
+
 
         MapsController mapsController = new MapsController();
         String map = mapsController.handleMapCreation(new double[]{lat, lng});
@@ -129,14 +128,13 @@ public class ReviewController {
             google.add("reviews", reviews);
 
             //OpenAI properties
-            openAI.addProperty("strengths", AIReviewArray[0]);
-            openAI.addProperty("weaknesses", AIReviewArray[1]);
-            openAI.addProperty("action_points", AIReviewArray[2]);
+            openAI.addProperty("strengths", AIReview.get(0));
+            openAI.addProperty("weaknesses", AIReview.get(1));
+            openAI.addProperty("action_points", AIReview.get(2));
 
             json.add("google", google);
             json.add("foursquare", foursquare);
             json.add("openAI", openAI);
-
 
 
             FoursquareAPI.getFoursquarePlaces(ctx, json);
@@ -154,7 +152,7 @@ public class ReviewController {
     }
 
     //This method gets the reviews of the place using the place id
-    public static JsonArray getReviews(Context ctx, String placeId, String API_KEY, double lat, double lng){
+    public static JsonArray getReviews(Context ctx, String placeId, String API_KEY, double lat, double lng) {
         String detailsUrl = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeId + "&key=" + API_KEY;
         JsonArray reviewsJsonArray = new JsonArray();
 
@@ -168,11 +166,11 @@ public class ReviewController {
         try {
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
             JsonObject jsonObject = JsonParser.parseString(response.body()).getAsJsonObject();
-            if (jsonObject.has("result")){
+            if (jsonObject.has("result")) {
                 JsonObject result = jsonObject.getAsJsonObject("result");
-                if (result.has("reviews")){
+                if (result.has("reviews")) {
                     JsonArray reviews = result.getAsJsonArray("reviews");
-                    for (JsonElement review : reviews){
+                    for (JsonElement review : reviews) {
                         JsonObject reviewObject = review.getAsJsonObject();
                         String reviewText = reviewObject.get("text").getAsString();
                         reviewsArray.add(reviewText);
@@ -182,7 +180,7 @@ public class ReviewController {
             }
 
             //Get the reviews of the place
-            for (String review : reviewsArray){
+            for (String review : reviewsArray) {
                 reviewsJsonArray.add(review);
             }
 
@@ -194,8 +192,68 @@ public class ReviewController {
         return reviewsJsonArray;
     }
 
+    public static String chatGPT(String message) {
+        String url = "https://api.openai.com/v1/chat/completions";
+
+        ConfigLoader loader = new ConfigLoader();
+        String API_KEY = loader.getApiKey("openai.api.key");
+        String model = "gpt-3.5-turbo";
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Authorization", "Bearer " + API_KEY)
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString("{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message.replace("\n", "") + "\"}]}"))
+                .build();
+
+
+        try{
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            String responseBody = response.body();
+            JsonObject object = JsonParser.parseString(responseBody).getAsJsonObject();
+
+            System.out.println(object.getAsJsonObject().toString());
+
+            String stringResponse = object.getAsJsonObject().get("choices").getAsJsonArray().get(0).getAsJsonObject().get("message").getAsJsonObject().get("content").getAsString();
+
+            return stringResponse;
+
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static String extractContentFromResponse(String response) {
+        int startMarker = response.indexOf("content") + 11; // Marker for where the content starts.
+        int endMarker = response.indexOf("\"", startMarker); // Marker for where the content ends.
+        return response.substring(startMarker, endMarker); // Returns the substring containing only the response.
+    }
+
+    public static ArrayList<String> getAIReviews(ArrayList<String> reviews) {
+        ArrayList<String> AIReviews = new ArrayList<>();
+        StringBuilder reviewString = new StringBuilder();
+
+        for (String review : reviews) {
+            reviewString.append(review).append(" ");
+        }
+
+        String promptOne = "Based on the following reviews, write 5 strengths this business has. Write only the 5 points, with the format of number, nothing else: ";
+        String promptTwo = "Based on the reviews, write 5 weaknesses this business has. Write only the 5 points, with the format, nothing else: ";
+        String promptThree = "Based on the reviews, write 5 action points to improve the business. Write only the 5 points, with the format, nothing else: ";
+
+        AIReviews.add(chatGPT(promptOne + reviewString));
+        AIReviews.add(chatGPT(promptTwo + reviewString));
+        AIReviews.add(chatGPT(promptThree + reviewString));
+
+        return AIReviews;
+    }
+
     public static void search(Context ctx){
 
 
     }
+
 }
