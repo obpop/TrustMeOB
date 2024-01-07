@@ -1,7 +1,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    min-height: 200vh;
+    min-height: 100vh;
 }
 
 header {
@@ -17,7 +17,24 @@ footer {
     color: rgba(247, 247, 247, 1);
     background: rgba(0, 31, 63, 1);
     height: 200px;
-    margin-top: 700px;
+    margin-top: 550px;
+}
+
+#footer-index,
+.footer-startsida {
+    font-family: Tahoma;
+    color: rgba(247, 247, 247, 1);
+    background: rgba(0, 31, 63, 1);
+    height: 200px;
+    margin-top: 550px;
+}
+
+#footer-index {
+    font-family: Tahoma;
+    color: rgba(247, 247, 247, 1);
+    background: rgba(0, 31, 63, 1);
+    height: 240px;
+    margin-top: -250px;
 }
 
 main {
@@ -45,9 +62,26 @@ h1 {
     top: 80px;
 }
 
+#h2-index,
+.h2e-startsida {
+    color: white;
+    font-size: 45px;
+    font-family: Tahoma;
+    height: 50px;
+    position: relative;
+    margin-left: -130px;
+    top: 280px;
+}
+
+#h2-index {
+    margin-left: -700px;
+    font-size: 40px;
+    top: 200px;
+}
+
 h2 {
     color: white;
-    font-size: 48px;
+    font-size: 45px;
     font-family: Tahoma;
     height: 50px;
     position: relative;
@@ -55,7 +89,26 @@ h2 {
     top: 240px;
 }
 
-.searchbar {
+#TrustMe-index,
+.TrustMe-startsida {
+    margin-top: 0;
+    padding-top: 20px;
+    color: #ef8104;
+    font-size: 40px;
+    font-weight: 400;
+    max-width: 500px;
+    height: 50px;
+    position: relative;
+    margin-left: 200px;
+    top: 80px;
+}
+
+#TrustMe-index {
+    margin-left: -78px;
+    top: 18px;
+    font-size: 40px;
+}
+.searchbar-startsida {
     border-radius: 20px;
     background: #f6f6f6;
     width: 8900px;
@@ -64,6 +117,17 @@ h2 {
     position: relative;
     margin-left: 210px;
     top: 255px;
+}
+
+.searchbar-index {
+    border-radius: 20px;
+    background: #f6f6f6;
+    width: 8900px;
+    max-width: 600px;
+    height: 50px;
+    position: relative;
+    margin-left: 730px;
+    top: -150px;
 }
 
 .search-container {
@@ -99,8 +163,14 @@ h2 {
 }
 
 #name {
-    font-size: 24px;
+    font-size: 78px;
+    color: #ffffff;
     border-radius: 20px;
+    font-family: Tahoma;
+    height: 50px;
+    position: relative;
+    margin-left: 25px;
+    top: -400px;
 }
 
 .data {
@@ -122,40 +192,75 @@ h3 {
 }
 
 #strengths {
-    margin: 30px;
+    margin: 1px 3px 3px 3px; /* Övre marginal minskad */
     grid-area: 2 / 1 / 3 / 2;
-    color: white;
+    color: rgb(221, 0, 0);
+    position: relative;
+    top: -400px; /* Justera efter behov */
 }
 
 #flaws {
-    margin: 30px;
+    margin: 1px 3px 3px 3px; /* Övre marginal minskad */
     grid-area: 2 / 2 / 3 / 3;
-    color: white;
+    color: rgb(220, 0, 0);
+    position: relative;
+    top: -400px; /* Justera efter behov */
 }
 
 #strategy {
+    margin: 0 30px 30px 30px; /* Övre marginal minskad */
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 30px;
     margin-right: 30px;
     grid-area: 3 / 1 / 4 / 2;
-    color: white;
+    color: rgb(246, 0, 0);
+    position: relative;
+    top: -400px; /* Justera efter behov */
 }
 
 #placeinfo {
     grid-area: 3 / 2 / 4 / 3;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 30px;
-    margin-right: 30px;
-    color: white;
+    margin: 1px 3px 3px 3px; /* Övre marginal minskad */
+    color: rgb(255, 255, 255);
+    position: relative;
+    top: -400px; /* Justera efter behov */
 }
 
 #mapImage {
     width: 100%;
 }
 
+#reviewsdata {
+    /* Recensionrutan */
+    margin: 30px;
+    grid-area: 4 / 1 / 5 / 3;
+    border-radius: 20px;
+    background-color: #3b2037;
+    color: #ffffff;
+    display: flex;
+    position: relative;
+    top: -400px; /* Justera efter behov */
+}
+
+#google-info {
+    /* Recensionrutan vänster */
+    overflow: hidden;
+    word-wrap: break-word;
+    padding: 15px;
+    flex: 1;
+}
+
+#foursquare-info {
+    /* Recensionrutan höger */
+    overflow: hidden;
+    word-wrap: break-word;
+    padding: 10px;
+    flex: 1;
+}
+
 #about {
+    /* Om oss rutan */
     position: absolute;
     top: 450px;
     left: 180px;
@@ -169,11 +274,13 @@ h3 {
 }
 
 .data h3 {
+    /* Om oss rutan */
     font-size: 30px;
     font-weight: 700;
 }
 
 .data ul {
+    /* Om oss rutan */
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
     font-size: 20px;
@@ -183,27 +290,6 @@ h3 {
 }
 
 .data li {
+    /* Om oss rutan - avstånd mellan stycken */
     margin-bottom: 20px;
-}
-
-#reviewsdata {
-    margin: 30px;
-    grid-area: 4 / 1 / 5 / 3;
-    border-radius: 20px;
-    background-color: #202b3b;
-    display: flex;
-}
-
-#google-info {
-    overflow: hidden;
-    word-wrap: break-word;
-    padding: 15px;
-    flex: 1;
-}
-
-#foursquare-info {
-    overflow: hidden;
-    word-wrap: break-word;
-    padding: 10px;
-    flex: 1;
 }
