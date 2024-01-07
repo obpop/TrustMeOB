@@ -28,13 +28,25 @@ function updatePage(data) {
     // Uppdatera sidan med Google-information
     const googleData = data.google;
     document.getElementById("name").innerText = googleData.name
-    document.getElementById("google-reviews").innerText = "Recensioner: " + googleData.reviews;
+    document.getElementById("google-reviews").innerText = googleData.reviews;
     
     // Uppdatera sidan med Foursquare-information
     const foursquareData = data.foursquare;
-    document.getElementById("foursquare-reviews").innerText = "Adress: " + foursquareData.texts;
+    document.getElementById("foursquare-reviews").innerText = foursquareData.texts;
+
+    // Hitta kartelementet
+    const mapImage = document.getElementById("mapImage");
+
+    // Kontrollera om det finns data för Google
+    if (data && data.google && data.google.map) {
+        // Visa kartan från Google
+        mapImage.src = data.google.map;
+    } else {
+        // Om det inte finns någon kartinformation
+        mapImage.src = ""; // Rensa kartan
+        alert("Ingen kartinformation tillgänglig.");
     }
-    
+}
 
 async function testReviews(){
     try {
