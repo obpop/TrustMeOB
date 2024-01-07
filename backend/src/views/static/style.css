@@ -295,14 +295,41 @@ h3 {
     margin-bottom: 20px;
 }
 
-#Progress {
+
+#progress-bar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    background-color: grey;
+    z-index: 1000;
 }
 
-#progressBar {
-    width: 1%;
-    height: 30px;
-    background-color: green;
+progress {
+    --_track-size: min(10px, 1ex);
+    --_radius: 1e3px;
+    appearance: none;
+    border: none;
+    position: relative;
+    height: var(--_track-size);
+    border-radius: var(--_radius);
+    overflow: hidden;
+    width: 100%;
 }
 
+#moving-box {
+    position: absolute;
+    height: 90%;
+    width: 50px;
+    background-color: #ef8104;
+    animation: moveBox 5s linear infinite; /* Animering */
+}
+
+@keyframes moveBox {
+    0%, 100% {
+        left: 0;
+    }
+    50% {
+        left: 100%;
+    }
+}
