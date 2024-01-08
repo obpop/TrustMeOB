@@ -261,60 +261,76 @@ main {
     /* Om oss rutan - avstånd mellan stycken */
     margin-bottom: 20px;
 }
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to { 
+        transform: rotate(360deg);
+    }
+}
+ 
 
+ @-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to { 
+        -webkit-transform: rotate(360deg);
+    }
+}
 #progress-bar {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    align-self: stretch;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 50%;
-    z-index: 1000;
-    background-color: #fffdfd;
+    top: 30%;
+    left: 46%;
+
+    width: 100px;
+    height: 100px;
+    margin: 110px auto 0;
+    border:solid 10px #ffffff;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+     -webkit-transition: all 0.5s ease-in;
+    -webkit-animation-name:             rotate; 
+    -webkit-animation-duration:         1.0s; 
+    -webkit-animation-iteration-count:  infinite;
+    -webkit-animation-timing-function: linear;
+            
+    transition: all 0.5s ease-in;
+    animation-name:             rotate; 
+    animation-duration:         1.0s; 
+    animation-iteration-count:  infinite;
+    animation-timing-function: linear; 
 }
 
 progress {
-    --_track-size: min(10px, 1ex);
-    --_radius: 1e3px;
-    appearance: none;
-    border: none;
-    position: relative;
-    border-radius: var(--_radius);
     overflow: hidden;
     width: 80%;
-    height: 30px;
-}
-
-#moving-box {
-    position: absolute;
-    height: 30px;
-    width: 50px;
-    --_radius: 1e3px;
-    border-radius: var(--_radius);
-    background-color: #ef8104;
-    animation: moveBox 10s linear infinite; /* Animering */
-    left: 0;
-    top: 62%;
+    height: 40px;
 }
 
 #progress-title {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    height: 100%;
+    font-family: sans-serif /* Byt ut 'Helvetica' mot önskat typsnitt */
+    /* Övriga stilregler... */
 }
-
 
 @keyframes moveBox {
     0% {
         left: 0;
+        background-color: #fffb00; /* Initial färg när animationen börjar */
     }
     50% {
         left: 50%;
+        background-color: #ed1c18; /* Färgen vid 50% av animationen */
+    }
+    100% {
+        left: 100%;
+        background-color: #600fd1; /* Återgå till initial färg när animationen är klar */
     }
 }
