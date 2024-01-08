@@ -19,7 +19,7 @@ public class OpenAIController {
 
     public static void chatGPT(Context ctx) {
         String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = "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"; //Write API-Key here
+        String apiKey = ""; //Write API-Key here
         String model = "gpt-3.5-turbo";
         String jsonBody = ctx.body();
         JsonObject jsonObject = JsonParser.parseString(jsonBody).getAsJsonObject();
