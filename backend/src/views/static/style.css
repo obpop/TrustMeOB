@@ -17,16 +17,7 @@ footer {
     color: rgba(247, 247, 247, 1);
     background: linear-gradient(#001020, #002c56);
     height: 200px;
-    margin-top: 500px;
-}
-
-#footer-index,
-.footer-startsida {
-    font-family: Tahoma;
-    color: rgba(247, 247, 247, 1);
-    background: linear-gradient(#001020, #002c56);
-    height: 200px;
-    margin-top: 550px;
+    margin-top: 700px;
 }
 
 #footer-index {
@@ -35,13 +26,6 @@ footer {
     background: linear-gradient(#001020, #002c56);
     height: 240px;
     margin-top: -20px;
-}
-
-main {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    padding: 85px;
 }
 
 #title {
@@ -73,7 +57,7 @@ h1 {
 }
 
 #h2-index {
-    margin-left: -700px;
+    margin-left: -500px;
     font-size: 40px;
     top: 200px;
 }
@@ -106,11 +90,13 @@ header a {
     top: 80px;
 }
 
-#TrustMe-index {
-    margin-left: -78px;
-    top: 18px;
+#TrustMe-index a {
+    text-decoration: none;
+    color: #ef8104;
+    margin-left: -360px;
     font-size: 40px;
 }
+
 .searchbar-startsida {
     border-radius: 20px;
     background: #f6f6f6;
@@ -129,8 +115,8 @@ header a {
     max-width: 600px;
     height: 50px;
     position: relative;
-    margin-left: 730px;
-    top: -150px;
+    margin-left: 630px;
+    top: -100px;
 }
 
 .search-container {
@@ -168,18 +154,17 @@ header a {
 #name {
     font-size: 78px;
     color: #ffffff;
-    border-radius: 20px;
     font-family: Tahoma;
-    height: 50px;
-    position: relative;
-    margin-left: 20px;
-    top: -400px;
+    position: absolute; /* eller relative beroende på ditt önskade beteende */
+    top: 300px; /* Justera detta värde efter behov */
+    left: 200px; /* Justera detta värde efter behov */
 }
 
 .data {
-    border-radius: 10px;
-    background: rgba(247, 247, 247, 1);
-    color: rgba(99, 99, 99, 1);
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h3 {
@@ -191,51 +176,55 @@ h3 {
 
 .data {
     margin: 30px;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
-#placeinfo,
-#strengths,
-#flaws,
-#strategy {
-    border-radius: 10px;
-    background: rgba(247, 247, 247, 1);
-    color: rgba(99, 99, 99, 1);
-    padding: 30px;
+#mapImage {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr) auto auto;
+    gap: 1px;
+    padding: 3px;
+    margin-left: 175px;
+    margin-right: 175px;
 }
 
 #placeinfo {
-    grid-column: span 2;
-}
-
-#strengths {
-    grid-row: 2 / span 1;
+    grid-row: span 1;
+    display: grid;
+    place-items: center;
 }
 
 #flaws {
-    grid-row: 2 / span 2;
+    grid-row: span 2;
+}
+
+#strengths {
+    grid-row: span 1;
 }
 
 #strategy {
-    grid-row: 3 / span 2;
+    grid-column: span 2;
+    background-color: #0074e4;
+    color: #f6f6f6;
 }
 
 #reviewsdata {
-    margin: 20px;
     grid-column: span 2;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    border-radius: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
     background-color: #0074e4;
-    color: #ffffff;
-}
-
-#google-info,
-#foursquare-info {
-    overflow: hidden;
-    word-wrap: break-word;
-    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #fffdfd;
 }
 
 #about {

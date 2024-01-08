@@ -10,16 +10,15 @@
 
     <body>
         <header>
-            <a href="startsida.html">
-                <h1 id="TrustMe-index">TrustME</h1>
-            </a>
+            <h1 id="TrustMe-index"><a href="startsida.html">TrustME</a></h1>
             <h2 id="h2-index">Empower your Business...</h2>
+            <p id="name">Grand Hotel Lund</p> <!-- Koppla till javascript?????-->
             <div class="searchbar-index">
                 <div class="search-container">
                     <input
                         class="search-input"
                         type="text"
-                        placeholder="Sök företagsnamn"
+                        placeholder="Sök företagsnamn"  
                         id="companyName"
                     />
                     <button class="search-button" onclick="testReviews()">
@@ -27,22 +26,13 @@
                             class="search-icon"
                             src="images/search.png"
                             alt="Sök"
-                        />
+                            onclick="testReviews()" <!-- Flytta händelsen här om du vill ha det på bilden -->
                     </button>
+                    
                 </div>
             </div>
         </header>
         <main>
-            <div id="placeinfo" class="data">
-                <h3>Platsinformation</h3>
-                <img id="mapImage" src="" alt="Karta" />
-
-                <script src="script.js"></script>
-            </div>
-
-            <!-- Koppla till javascript?????-->
-            <p id="name">Grand Hotel Lund</p>
-
             <div id="strengths" class="data">
                 <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
                 <p id="strengths-list">Styrkor</p>
@@ -51,22 +41,25 @@
                 <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
                 <p id="flaws-list">Brister</p>
             </div>
+            <div id="placeinfo" class="data">   
+                <h3>Platsinformation</h3>
+                <img id="mapImage" src="" alt="Karta" />
+                <script src="script.js"></script>
+            </div>
             <div id="strategy" class="data">
                 <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
                 <p id="strategy-list">Optimeringstrategi</p>
             </div>
-
-            <div id="reviewsdata">
+            <div id="reviewsdata" class="data">
                 <div id="google-info">
-                    <h4>Google Information</h4>
-                    <p id="google-reviews">Recensioner</p>
+                  <h4>Google Information</h4>
+                  <p id="google-reviews">Recensioner</p>
                 </div>
-
+              
                 <div id="foursquare-info">
-                    <h4>Foursquare Information</h4>
-                    <p id="foursquare-reviews">Recensioner</p>
+                  <h4>Foursquare Information</h4>
+                  <p id="foursquare-reviews">Recensioner</p>
                 </div>
-            </div>
         </main>
         <footer id="footer-index"></footer>
     </body>
