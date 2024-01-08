@@ -40,3 +40,4 @@ build/
 
 ### API KEYS ###
 /src/main/resources/application.properties
+/src/main/resources/
