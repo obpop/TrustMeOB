@@ -24,7 +24,7 @@ public class Main {
             });
         }).start(8080);
 
-        app.get("/places", ReviewController::getReviewForPlace);
+        app.post("/places", ReviewController::getReviewForPlace);
         app.get("/openai", OpenAIController::test);
     }
 }

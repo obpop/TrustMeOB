@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1e8c2ee1-b5f9-410f-a247-fc8c8ac0f7a8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/OpenAIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/OpenAIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller/ReviewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/startsida.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/startsida.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/static/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/static/script.js" afterDir="false" />
     </list>
     <list id="06923b90-60dc-4324-850a-b8b2ee456228" name="Changes by Oliver" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +54,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;javalin-startup&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/just4rthur/Documents/github/TrustMe/untitled&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/just4rthur/Documents/university/second_year/data_structures_and_algorithms/ordkedjor/ordkedjor/Ordkedjor&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -114,6 +116,9 @@
       <workItem from="1704530957689" duration="2983000" />
       <workItem from="1704538597519" duration="298000" />
       <workItem from="1704617898270" duration="2382000" />
+      <workItem from="1704702617913" duration="351000" />
+      <workItem from="1704707624865" duration="599000" />
+      <workItem from="1704711426060" duration="6680000" />
     </task>
     <servers />
   </component>
