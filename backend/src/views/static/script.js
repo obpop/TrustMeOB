@@ -60,6 +60,12 @@ function updatePage(data) {
     const foursquareData = data.foursquare;
     document.getElementById("foursquare-reviews").innerText = foursquareData.texts;
 
+    // Uppdaterar sidan med information från openAI
+    const aiData = data.openAI;
+    document.getElementById("strengths-data").innerText = aiData.strengths;
+    document.getElementById("flaws-data").innerText = aiData.weaknesses;
+    document.getElementById("strategy-data").innerText = aiData.action_points;
+
     // Hitta kartelementet
     const mapImage = document.getElementById("mapImage");
 

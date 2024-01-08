@@ -15,7 +15,7 @@ header {
 footer {
     background: linear-gradient(#001020, #002c56);
     height: 200px;
-    margin-top: 800px;
+    margin-top: 1200px;
 }
 
 #footer-index {
@@ -169,13 +169,17 @@ h1 {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 30px;
-    color: rgb(0, 0, 0);
+    color: #474747;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    font-size: 23px;
+    line-height: 2;
 }
 
 h4 {
-    margin: 50px;
+    margin: 30px;
     color: rgba(99, 99, 99, 1);
-    font-size: 15px;
+    font-size: 35px;
     font-weight: 600;
 }
 
@@ -257,4 +261,24 @@ main {
 
 h5 {
     color: #525252;
+}
+
+#strategy-list {
+    color: #ffffff;
+}
+
+#strengthsdata,
+#flawsdata,
+#data {
+    gap: 10px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    font-size: 20px;
+    /* Lägg till dina önskade stilar här */
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 30px;
+    color: rgb(0, 0, 0);
 }

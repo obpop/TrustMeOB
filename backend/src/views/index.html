@@ -28,7 +28,6 @@
                             class="search-icon"
                             src="images/search.png"
                             alt="Sök"
-                            onclick="testReviewsOnImage()"
                         />
                     </button>
                 </div>
@@ -38,22 +37,25 @@
         <main>
              <!-- Listor om var TrustMe -->
             <div id="strengths" class="data">
+                <h4 id="strengths-list">Strengths</h4>
                 <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
-                <h4 id="strengths-list">Styrkor</h4>
+                <div id="strengths-data"></div>
             </div>
             <div id="flaws" class="data">
+                <h4 id="flaws-list">Flaws</h4>
                 <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
-                <h4 id="flaws-list">Brister</h4>
+                <div id="flaws-data"></div>
             </div>
               <!-- Platsinformation -->
-            <div id="placeinfo" class="data">   
-                <h4>Platsinformation</h4>
+            <div id="placeinfo" class="data"> 
+                <h4>Placeinformation</h4>  
                 <img id="mapImage" src="" alt="Karta" />
                 <script src="script.js"></script>
             </div>
             <div id="strategy" class="data">
+                <h4 id="strategy-list">Strategy</h4>
                 <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
-                <h4 id="strategy-list">Optimeringstrategi</h4>
+                <div id="strategy-data"></div>
             </div>
               <!-- Recensionsdata från Google och Foursquare -->
             <div id="reviewsdata" class="data">
