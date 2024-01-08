@@ -247,7 +247,7 @@ main {
     z-index: 1;
 }
 
-.data h3 {
+.about-title {
     /* Om oss rutan */
     font-size: 30px;
     font-weight: 700;
@@ -282,12 +282,8 @@ main {
         -webkit-transform: rotate(360deg);
     }
 }
-#progress-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    align-self: stretch;
+#progress {
+    display: none;
     position: fixed;
     top: 30%;
     left: 46%;
@@ -299,15 +295,10 @@ main {
     border-radius: 50%;
     border-right-color: transparent;
     border-bottom-color: transparent;
-    -webkit-transition: all 0.5s ease-in;
-    -webkit-animation-name: rotate;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
 
     transition: all 0.5s ease-in;
     animation-name: rotate;
-    animation-duration: 1s;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
@@ -319,8 +310,7 @@ progress {
 }
 
 #progress-title {
-    font-family: sans-serif; /* Byt ut 'Helvetica' mot önskat typsnitt */
-    /* Övriga stilregler... */
+    font-family: sans-serif;
 }
 
 @keyframes moveBox {
@@ -338,7 +328,7 @@ progress {
     }
 }
 
-h5 {
+.about-caption {
     color: #525252;
 }
 
