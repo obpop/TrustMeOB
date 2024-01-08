@@ -13,12 +13,16 @@ header {
 }
 
 footer {
+    font-family: Tahoma;
+    color: rgba(247, 247, 247, 1);
     background: linear-gradient(#001020, #002c56);
     height: 200px;
     margin-top: 1200px;
 }
 
 #footer-index {
+    font-family: Tahoma;
+    color: rgba(247, 247, 247, 1);
     background: linear-gradient(#001020, #002c56);
     height: 240px;
     margin-top: -20px;
@@ -26,6 +30,19 @@ footer {
 
 #title {
     display: flex;
+}
+
+h1 {
+    margin-top: 0;
+    padding-top: 20px;
+    color: #ef8104;
+    font-size: 40px;
+    font-weight: 400;
+    max-width: 500px;
+    height: 50px;
+    position: relative;
+    margin-left: 200px;
+    top: 80px;
 }
 
 #h2-index,
@@ -58,21 +75,6 @@ h2 {
 
 header a {
     text-decoration: none;
-}
-
-/* Utseende och placering för huduvrubrik/logga */
-
-h1 {
-    margin-top: 0;
-    padding-top: 20px;
-    color: #ef8104;
-    font-size: 40px;
-    font-weight: 400;
-    max-width: 500px;
-    height: 50px;
-    position: relative;
-    margin-left: 200px;
-    top: 80px;
 }
 
 #TrustMe-index,
@@ -231,9 +233,8 @@ main {
     color: #fffdfd;
 }
 
-/* Om oss rutan på startsidan */
-
 #about {
+    /* Om oss rutan */
     position: absolute;
     top: 450px;
     left: 180px;
@@ -244,6 +245,12 @@ main {
     box-shadow: -5px 0 10px -5px rgb(99, 99, 99, 1),
         5px 0 10px -5px rgb(99, 99, 99, 1), 0 5px 10px -5px rgb(99, 99, 99, 1);
     z-index: 1;
+}
+
+.data h3 {
+    /* Om oss rutan */
+    font-size: 30px;
+    font-weight: 700;
 }
 
 .data ul {
@@ -257,6 +264,79 @@ main {
 
 .data li {
     margin-bottom: 20px;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to { 
+        transform: rotate(360deg);
+    }
+}
+ 
+
+ @-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to { 
+        -webkit-transform: rotate(360deg);
+    }
+}
+#progress-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    position: fixed;
+    top: 30%;
+    left: 46%;
+
+    width: 100px;
+    height: 100px;
+    margin: 110px auto 0;
+    border:solid 10px #ffffff;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+     -webkit-transition: all 0.5s ease-in;
+    -webkit-animation-name:             rotate; 
+    -webkit-animation-duration:         1.0s; 
+    -webkit-animation-iteration-count:  infinite;
+    -webkit-animation-timing-function: linear;
+            
+    transition: all 0.5s ease-in;
+    animation-name:             rotate; 
+    animation-duration:         1.0s; 
+    animation-iteration-count:  infinite;
+    animation-timing-function: linear; 
+}
+
+progress {
+    overflow: hidden;
+    width: 80%;
+    height: 40px;
+}
+
+#progress-title {
+    font-family: sans-serif /* Byt ut 'Helvetica' mot önskat typsnitt */
+    /* Övriga stilregler... */
+}
+
+@keyframes moveBox {
+    0% {
+        left: 0;
+        background-color: #fffb00; /* Initial färg när animationen börjar */
+    }
+    50% {
+        left: 50%;
+        background-color: #ed1c18; /* Färgen vid 50% av animationen */
+    }
+    100% {
+        left: 100%;
+        background-color: #600fd1; /* Återgå till initial färg när animationen är klar */
+    }
 }
 
 h5 {
