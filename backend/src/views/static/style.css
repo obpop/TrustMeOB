@@ -13,16 +13,12 @@ header {
 }
 
 footer {
-    font-family: Tahoma;
-    color: rgba(247, 247, 247, 1);
     background: linear-gradient(#001020, #002c56);
     height: 200px;
     margin-top: 700px;
 }
 
 #footer-index {
-    font-family: Tahoma;
-    color: rgba(247, 247, 247, 1);
     background: linear-gradient(#001020, #002c56);
     height: 240px;
     margin-top: -20px;
@@ -30,19 +26,6 @@ footer {
 
 #title {
     display: flex;
-}
-
-h1 {
-    margin-top: 0;
-    padding-top: 20px;
-    color: #ef8104;
-    font-size: 40px;
-    font-weight: 400;
-    max-width: 500px;
-    height: 50px;
-    position: relative;
-    margin-left: 200px;
-    top: 80px;
 }
 
 #h2-index,
@@ -56,6 +39,7 @@ h1 {
     top: 280px;
 }
 
+/* Placering för underrubriken på indexsidan */
 #h2-index {
     margin-left: -500px;
     font-size: 40px;
@@ -74,6 +58,21 @@ h2 {
 
 header a {
     text-decoration: none;
+}
+
+/* Utseende och placering för huduvrubrik/logga */
+
+h1 {
+    margin-top: 0;
+    padding-top: 20px;
+    color: #ef8104;
+    font-size: 40px;
+    font-weight: 400;
+    max-width: 500px;
+    height: 50px;
+    position: relative;
+    margin-left: 200px;
+    top: 80px;
 }
 
 #TrustMe-index,
@@ -96,6 +95,8 @@ header a {
     margin-left: -360px;
     font-size: 40px;
 }
+
+/* Utseende och placering för sökrutan */
 
 .searchbar-startsida {
     border-radius: 20px;
@@ -151,20 +152,24 @@ header a {
     margin-left: 190px;
 }
 
+/* Namnet på företaget */
 #name {
     font-size: 78px;
     color: #ffffff;
     font-family: Tahoma;
-    position: absolute; /* eller relative beroende på ditt önskade beteende */
-    top: 300px; /* Justera detta värde efter behov */
-    left: 200px; /* Justera detta värde efter behov */
+    position: absolute;
+    top: 300px;
+    left: 200px;
 }
 
+/* Utseende för huvudinnehållet på indexsidan, datan som kommer in och gridsen */
 .data {
     background-color: #f9f9f9;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 30px;
+    color: rgb(0, 0, 0);
 }
 
 h3 {
@@ -172,11 +177,6 @@ h3 {
     color: rgba(99, 99, 99, 1);
     font-size: 30px;
     font-weight: 700;
-}
-
-.data {
-    margin: 30px;
-    color: rgb(0, 0, 0);
 }
 
 #mapImage {
@@ -227,8 +227,9 @@ main {
     color: #fffdfd;
 }
 
+/* Om oss rutan på startsidan */
+
 #about {
-    /* Om oss rutan */
     position: absolute;
     top: 450px;
     left: 180px;
@@ -242,13 +243,11 @@ main {
 }
 
 .data h3 {
-    /* Om oss rutan */
     font-size: 30px;
     font-weight: 700;
 }
 
 .data ul {
-    /* Om oss rutan */
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
     font-size: 20px;
@@ -258,6 +257,5 @@ main {
 }
 
 .data li {
-    /* Om oss rutan - avstånd mellan stycken */
     margin-bottom: 20px;
 }
