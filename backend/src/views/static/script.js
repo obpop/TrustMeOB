@@ -30,6 +30,32 @@ async function getReviewForPlace() {
 
 }
 
+function searchAndRedirect() {
+    var companyName = document.getElementById("companyName").value;
+    
+    if (!companyName) {
+        alert("Sök på företag.");
+        return;
+    }
+
+    // Bygg URL med sökparametern och navigera till andra sidan
+    window.location.href = "about.html?search=" + encodeURIComponent(companyName);
+}
+
+function searchAndDisplay() {
+    // Hämta sökparametern från URL
+    var searchParam = new URLSearchParams(window.location.search).get('search');
+
+    if (!searchParam) {
+        alert("Ingen sökparameter hittad.");
+        return;
+    }
+
+    // Använd sökparametern för att utföra sökningen och uppdatera sidan
+    // (Anropa din funktion för att hämta och visa sökresultatet)
+    getReviewForPlace(searchParam);
+}
+
 function updatePage(data) {
     // Uppdatera sidan med Google-information
     const googleData = data.google;
@@ -39,6 +65,12 @@ function updatePage(data) {
     // Uppdatera sidan med Foursquare-information
     const foursquareData = data.foursquare;
     document.getElementById("foursquare-reviews").innerText = foursquareData.texts;
+
+    // Uppdaterar sidan med information från openAI
+    const aiData = data.openAI;
+    document.getElementById("strengths-data").innerText = aiData.strengths;
+    document.getElementById("flaws-data").innerText = aiData.weaknesses;
+    document.getElementById("strategy-data").innerText = aiData.action_points;
 
     // Hitta kartelementet
     const mapImage = document.getElementById("mapImage");
@@ -54,8 +86,10 @@ function updatePage(data) {
     }
 }
 
-async function testReviews(){
+async function testReviews() {
     try {
+        showProgressBar();
+
         const response = await fetch('http://localhost:8080/places');
         const data = await response.json();
 
@@ -64,5 +98,17 @@ async function testReviews(){
 
     } catch (error) {
         console.error(error);
+    } finally {
+        hideProgressBar();
     }
+}
+
+function showProgressBar() {
+    const progressBar = document.getElementById("progress-bar");
+    progressBar.style.display = "block";
+}
+
+function hideProgressBar() {
+    const progressBar = document.getElementById("progress-bar");
+    progressBar.style.display = "none";
 }
