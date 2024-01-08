@@ -23,7 +23,7 @@
                         placeholder="Sök företagsnamn"  
                         id="companyName"
                     />
-                    <button class="search-button" onclick="testReviews()">
+                    <button class="search-button" onclick="searchAndDisplay()">
                         <img
                             class="search-icon"
                             src="images/search.png"
@@ -37,6 +37,8 @@
          <!-- Huvudinnehåll -->
         <main>
              <!-- Listor om var TrustMe -->
+            <div id="progress-bar">
+            </div> 
             <div id="strengths" class="data">
                 <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
                 <h4 id="strengths-list">Styrkor</h4>

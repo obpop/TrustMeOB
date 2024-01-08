@@ -74,8 +74,10 @@ function updatePage(data) {
     }
 }
 
-async function testReviews(){
+async function testReviews() {
     try {
+        showProgressBar();
+
         const response = await fetch('http://localhost:8080/places');
         const data = await response.json();
 
@@ -84,5 +86,17 @@ async function testReviews(){
 
     } catch (error) {
         console.error(error);
+    } finally {
+        hideProgressBar();
     }
+}
+
+function showProgressBar() {
+    const progressBar = document.getElementById("progress-bar");
+    progressBar.style.display = "block";
+}
+
+function hideProgressBar() {
+    const progressBar = document.getElementById("progress-bar");
+    progressBar.style.display = "none";
 }
