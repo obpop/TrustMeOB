@@ -1,0 +1,354 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+header {
+    font-family: Tahoma;
+    background: linear-gradient(#001020, #002c56);
+    box-shadow: 0px 5px 100px 5px #202b3b;
+    text-align: center;
+    height: 600px;
+}
+
+footer {
+    font-family: Tahoma;
+    color: rgba(247, 247, 247, 1);
+    background: linear-gradient(#001020, #002c56);
+    height: 200px;
+    margin-top: 1300px;
+}
+
+#footer-index {
+    font-family: Tahoma;
+    color: rgba(247, 247, 247, 1);
+    background: linear-gradient(#001020, #002c56);
+    height: 240px;
+    margin-top: -20px;
+}
+
+#title {
+    display: flex;
+}
+
+h1 {
+    margin-top: 0;
+    padding-top: 20px;
+    color: #ef8104;
+    font-size: 40px;
+    font-weight: 400;
+    max-width: 500px;
+    height: 50px;
+    position: relative;
+    margin-left: 200px;
+    top: 80px;
+}
+
+#h2-index,
+.h2e-startsida {
+    color: white;
+    font-size: 45px;
+    font-family: Tahoma;
+    height: 50px;
+    position: relative;
+    margin-left: -130px;
+    top: 280px;
+}
+
+/* Placering för underrubriken på indexsidan */
+#h2-index {
+    margin-left: -690px;
+    font-size: 40px;
+    top: 200px;
+}
+
+h2 {
+    color: white;
+    font-size: 45px;
+    font-family: Tahoma;
+    height: 50px;
+    position: relative;
+    margin-left: -130px;
+    top: 240px;
+}
+
+header a {
+    text-decoration: none;
+}
+
+#TrustMe-index,
+.TrustMe-startsida {
+    margin-top: 0;
+    padding-top: 20px;
+    color: #ef8104;
+    font-size: 40px;
+    font-weight: 400;
+    max-width: 500px;
+    height: 50px;
+    position: relative;
+    margin-left: 200px;
+    top: 80px;
+}
+
+#TrustMe-index a {
+    text-decoration: none;
+    color: #ef8104;
+    margin-left: -360px;
+    font-size: 40px;
+}
+
+/* Utseende och placering för sökrutan */
+
+.searchbar-startsida {
+    border-radius: 20px;
+    background: #f6f6f6;
+    width: 8900px;
+    max-width: 600px;
+    height: 50px;
+    position: relative;
+    margin-left: 210px;
+    top: 255px;
+}
+
+.searchbar-index {
+    border-radius: 20px;
+    background: #f6f6f6;
+    width: 8900px;
+    max-width: 600px;
+    height: 50px;
+    position: relative;
+    margin-left: 200px;
+    top: 300px;
+}
+
+.search-container {
+    position: absolute;
+    top: 50%;
+    left: 200px;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.search-input {
+    border: none;
+    background-color: transparent;
+    border-radius: 20px 0 0 20px;
+    padding: 10px;
+    width: calc(100% - 40px);
+    outline: none;
+    margin-right: 220px;
+}
+
+.search-button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    margin-left: -20px;
+}
+
+.search-icon {
+    height: 30px;
+    margin-left: 190px;
+}
+
+/* Namnet på företaget */
+#name {
+    font-size: 78px;
+    color: #ffffff;
+    font-family: Tahoma;
+    position: absolute;
+    top: 300px;
+    left: 200px;
+}
+
+/* Utseende för huvudinnehållet på indexsidan, datan som kommer in och gridsen */
+.data {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 30px;
+    color: #474747;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    font-size: 23px;
+    line-height: 2;
+}
+
+h4 {
+    margin: 30px;
+    color: rgba(99, 99, 99, 1);
+    font-size: 35px;
+    font-weight: 600;
+}
+
+#mapImage {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr) auto auto;
+    gap: 1px;
+    padding: 3px;
+    margin-left: 175px;
+    margin-right: 175px;
+}
+
+#placeinfo {
+    grid-row: span 1;
+    display: grid;
+    place-items: center;
+}
+
+#flaws {
+    grid-row: span 2;
+}
+
+#strengths {
+    grid-row: span 1;
+}
+
+#strategy {
+    grid-column: span 2;
+    background-color: #0074e4;
+    color: #f6f6f6;
+}
+
+#reviewsdata {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    background-color: #0074e4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #fffdfd;
+}
+
+#about {
+    /* Om oss rutan */
+    position: absolute;
+    top: 450px;
+    left: 180px;
+    right: 180px;
+    padding-top: 10px;
+    margin: 30px;
+    color: rgba(99, 99, 99, 1);
+    box-shadow: -5px 0 10px -5px rgb(99, 99, 99, 1),
+        5px 0 10px -5px rgb(99, 99, 99, 1), 0 5px 10px -5px rgb(99, 99, 99, 1);
+    z-index: 1;
+}
+
+.about-title {
+    /* Om oss rutan */
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.data ul {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    font-size: 20px;
+    list-style-type: none;
+    padding: 20px;
+    margin: 0;
+}
+
+.data li {
+    margin-bottom: 20px;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+#progress {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 46%;
+
+    width: 35px;
+    height: 35px;
+    margin: 110px auto 0;
+    border: solid 10px #ffffff;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+
+    transition: all 0.5s ease-in;
+    animation-name: rotate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+progress {
+    overflow: hidden;
+    width: 80%;
+    height: 40px;
+}
+
+#progress-title {
+    font-family: sans-serif;
+}
+
+@keyframes moveBox {
+    0% {
+        left: 0;
+        background-color: #fffb00; /* Initial färg när animationen börjar */
+    }
+    50% {
+        left: 50%;
+        background-color: #ed1c18; /* Färgen vid 50% av animationen */
+    }
+    100% {
+        left: 100%;
+        background-color: #600fd1; /* Återgå till initial färg när animationen är klar */
+    }
+}
+
+.about-caption {
+    color: #525252;
+}
+
+#strategy-list {
+    color: #ffffff;
+}
+
+#strengthsdata,
+#flawsdata,
+#data {
+    gap: 10px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    font-size: 20px;
+    /* Lägg till dina önskade stilar här */
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 30px;
+    color: rgb(0, 0, 0);
+}

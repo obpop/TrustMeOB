@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>TrustME</title>
+        <link href="static/style.css" rel="stylesheet">
+        <script src="static/script.js" defer></script>
+    </head>
+
+    <body>
+         <!-- Sidans header med logga, rubrik och sökfunktion -->
+        <header>
+            <h1 id="TrustMe-index"><a href="startsida.html">TrustME</a></h1>
+            <h2 id="h2-index">Empower your Business...</h2>
+            <p id="name" ></p>
+               <!-- Sökruta -->
+            <div class="searchbar-index">
+                <div class="search-container">
+                    <input class="search-input" type="text" placeholder="Sök företagsnamn" id="companyName">
+                    <button class="search-button" onclick="searchAndRedirect()">
+                        <img class="search-icon" src="images/search.png" alt="Sök">
+                    </button>                    
+                </div>
+            </div>
+        </header>
+         <!-- Huvudinnehåll -->
+        <main>
+             <!-- Listor om var TrustMe -->
+            <div id="progress">
+            </div> 
+            <div id="strengths" class="data">
+                <h4 id="strengths-list">Strengths</h4>
+                <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
+                <div id="strengths-data"></div>
+            </div>
+            <div id="flaws" class="data">
+                <h4 id="flaws-list">Flaws</h4>
+                <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
+                <div id="flaws-data"></div>
+            </div>
+              <!-- Platsinformation -->
+            <div id="placeinfo" class="data"> 
+                <h4>Placeinformation</h4>  
+                <img id="mapImage" src="" alt="Karta" />
+                <script src="script.js"></script>
+            </div>
+            <div id="strategy" class="data">
+                <h4 id="strategy-list">Strategy</h4>
+                <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
+                <div id="strategy-data"></div>
+            </div>
+        </main>
+        <footer id="footer-index"></footer>
+    </body>
+</html>
