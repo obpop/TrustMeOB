@@ -58,7 +58,7 @@ h1 {
 
 /* Placering för underrubriken på indexsidan */
 #h2-index {
-    margin-left: -700px;
+    margin-left: -690px;
     font-size: 40px;
     top: 200px;
 }
@@ -118,8 +118,8 @@ header a {
     max-width: 600px;
     height: 50px;
     position: relative;
-    margin-left: 630px;
-    top: -100px;
+    margin-left: 200px;
+    top: 300px;
 }
 
 .search-container {
@@ -282,14 +282,15 @@ main {
         -webkit-transform: rotate(360deg);
     }
 }
+
 #progress {
     display: none;
     position: fixed;
-    top: 30%;
+    top: 20%;
     left: 46%;
 
-    width: 100px;
-    height: 100px;
+    width: 35px;
+    height: 35px;
     margin: 110px auto 0;
     border: solid 10px #ffffff;
     border-radius: 50%;
