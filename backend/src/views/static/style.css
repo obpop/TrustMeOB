@@ -262,14 +262,17 @@ main {
     margin-bottom: 20px;
 }
 
-
 #progress-bar {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 50%;
     z-index: 1000;
+    background-color: #fffdfd;
 }
 
 progress {
@@ -278,25 +281,40 @@ progress {
     appearance: none;
     border: none;
     position: relative;
-    height: var(--_track-size);
     border-radius: var(--_radius);
     overflow: hidden;
-    width: 100%;
+    width: 80%;
+    height: 30px;
 }
 
 #moving-box {
     position: absolute;
-    height: 90%;
+    height: 30px;
     width: 50px;
+    --_radius: 1e3px;
+    border-radius: var(--_radius);
     background-color: #ef8104;
-    animation: moveBox 5s linear infinite; /* Animering */
+    animation: moveBox 10s linear infinite; /* Animering */
+    left: 0;
+    top: 62%;
 }
 
+#progress-title {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 100%;
+}
+
+
 @keyframes moveBox {
-    0%, 100% {
+    0% {
         left: 0;
     }
     50% {
-        left: 100%;
+        left: 50%;
     }
 }
