@@ -25,6 +25,6 @@ public class Main {
         }).start(8080);
 
         app.post("/places", ReviewController::getReviewForPlace);
-        app.get("/openai", OpenAIController::test);
+        app.post("/openai", OpenAIController::chatGPT);
     }
 }

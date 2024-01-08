@@ -1,5 +1,6 @@
 package org.example.Controller;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import io.javalin.http.Context;
 
 import java.io.BufferedReader;
@@ -7,72 +8,49 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
 public class OpenAIController {
 
-    /*
-    public static void main(String[] args) {
-        ArrayList<String> reviews = new ArrayList<>();
-        reviews.add("Such an amazing experience! At one point I was looking through the drink book( I say book because it’s at least 20 pages!) and was struggling to find the by the glass wine list, an employee noticed and was by my side asking if I needed any help in seconds. Our server was super knowledgeable and was able to make several spot on recommendations. It was my 13 yr old daughter’s first experience at a restaurant like this and she was blown away. I told her before hand things like notice how when the servers reach in front of you, their face will always be facing you, in between each course they will clear out silverware and bring us the exact utensils we need for our next course. Etc. When we arrived, she was looking for all of those things and she kept saying dad look how they cleared out plates, they were always facing us and cleared our  plates all at the same time! Thanks for making her experience incredible. It’s the little things. Not to mention the food was off the charts. Such thoughtful pairing of flavor profiles and textures in each dish. Must try!");
-        ArrayList<String> AIresponse = getAIReviews(reviews);
-
-        System.out.println("Response 1");
-        System.out.println(AIresponse.get(0));
-
-        System.out.println("Response 2");
-        System.out.println(AIresponse.get(1));
-
-        System.out.println("Response 3");
-        System.out.println(AIresponse.get(2));
-    }
-
-     */
-
-    public static ArrayList<String> getAIReviews(ArrayList<String> reviews) {
-        ArrayList<String> AIReviews = new ArrayList<>();
-
-        String promptOne = "Based on the following reviews, write 5 strengths this business has. Write only the 5 points, with the format [number] + [.], nothing else: ";
-        //String promptTwo = "Based on the reviews, write 5 weaknesses this business has. Write only the 5 points, with the format [number] + [.], nothing else: ";
-        //String promptThree = "Based on the reviews, write 5 action points to improve the business. Write only the 5 points, with the format [number] + [.], nothing else: ";
-
-        AIReviews.add(chatGPT(promptOne + reviews.get(0)));
-        //AIReviews.add(chatGPT(promptTwo + reviews.get(1)));
-        //AIReviews.add(chatGPT(promptThree + reviews.get(2)));
-
-        return AIReviews;
-    }
-
-    public static String chatGPT(String message) {
+    public static void chatGPT(Context ctx) {
         String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = ""; //Write API-Key here
+        String apiKey = "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"; //Write API-Key here
         String model = "gpt-3.5-turbo";
+        String jsonBody = ctx.body();
+        JsonObject jsonObject = JsonParser.parseString(jsonBody).getAsJsonObject();
+        String message = jsonObject.get("message").getAsString();
 
-        try {
-            URL obj = new URL(url);
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-            con.setRequestMethod("POST");
-            con.setRequestProperty("Authorization", "Bearer " + apiKey);
-            con.setRequestProperty("Content-Type", "application/json");
+        HttpClient client = HttpClient.newHttpClient();
 
-            String body = "{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message.replace("\n", "") + "\"}]}";
-            con.setDoOutput(true);
-            OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream());
-            writer.write(body);
-            writer.flush();
-            writer.close();
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-            in.close();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Authorization", "Bearer " + apiKey)
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString("{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message.replace("\n", "") + "\"}]}"))
+                .build();
 
-            return extractContentFromResponse(response.toString());
 
-        } catch (IOException e) {
+        try{
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            String responseBody = response.body();
+            JsonObject object = JsonParser.parseString(responseBody).getAsJsonObject();
+
+            System.out.println(object.getAsJsonObject().toString());
+
+            String stringResponse = object.getAsJsonObject().get("choices").getAsJsonArray().get(0).getAsJsonObject().get("message").getAsJsonObject().get("content").getAsString();
+
+            JsonObject json = new JsonObject();
+            json.addProperty("response", stringResponse);
+
+            ctx.json(json.toString());
+
+        } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
@@ -81,6 +59,9 @@ public class OpenAIController {
         String url = "https://api.openai.com/v1/chat/completions";
         String apiKey = ""; //Write API-Key here
         String model = "gpt-3.5-turbo";
+        String jsonBody = ctx.body();
+        JsonObject jsonObject = JsonParser.parseString(jsonBody).getAsJsonObject();
+        String message = jsonObject.get("message").getAsString();
 
         try {
             URL obj = new URL(url);
@@ -89,7 +70,7 @@ public class OpenAIController {
             con.setRequestProperty("Authorization", "Bearer " + apiKey);
             con.setRequestProperty("Content-Type", "application/json");
 
-            String body = "{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + "Hello, how are you?" + "\"}]}";
+            String body = "{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message + "\"}]}";
             con.setDoOutput(true);
             OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream());
             writer.write(body);
