@@ -24,6 +24,32 @@ async function getReviewForPlace() {
         });
 }
 
+function searchAndRedirect() {
+    var companyName = document.getElementById("companyName").value;
+    
+    if (!companyName) {
+        alert("Sök på företag.");
+        return;
+    }
+
+    // Bygg URL med sökparametern och navigera till andra sidan
+    window.location.href = "about.html?search=" + encodeURIComponent(companyName);
+}
+
+function searchAndDisplay() {
+    // Hämta sökparametern från URL
+    var searchParam = new URLSearchParams(window.location.search).get('search');
+
+    if (!searchParam) {
+        alert("Ingen sökparameter hittad.");
+        return;
+    }
+
+    // Använd sökparametern för att utföra sökningen och uppdatera sidan
+    // (Anropa din funktion för att hämta och visa sökresultatet)
+    getReviewForPlace(searchParam);
+}
+
 function updatePage(data) {
     // Uppdatera sidan med Google-information
     const googleData = data.google;
