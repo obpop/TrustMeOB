@@ -26,9 +26,9 @@ public class Main {
             });
         }).start(8080);
 
-        //app.post("/search", );
+        // app.post("/search", );
         app.get("/places", ReviewController::getReviewForPlace);
-        //app.get("/place-foursquare", FoursquareAPI::getFoursquarePlaces);
+        // app.get("/place-foursquare", FoursquareAPI::getFoursquarePlaces);
 
     }
 }
