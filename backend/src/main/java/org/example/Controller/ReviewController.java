@@ -19,12 +19,16 @@ public class ReviewController {
     }
 
     public static void getReviewForPlace(Context ctx) throws IOException, InterruptedException {
+        String jsonBody = ctx.body();
+        JsonObject nameObject = JsonParser.parseString(jsonBody).getAsJsonObject();
+        String companyName = nameObject.get("name").getAsString();
+        companyName = formatSpacesToURL(companyName);
 
-        String pathPlaceName = "";
+        System.out.println("COMPANY NAME: " + companyName);
 
         // String apiKey = "";
         String placeId = "";
-        String textSearchUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=grand+hotel+lund&key=" + API_KEY;
+        String textSearchUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + companyName + "&key=" + API_KEY;
         double lat = 0;
         double lng = 0;
         double northEastLat = 0;
@@ -60,9 +64,6 @@ public class ReviewController {
             //Get the address of the place
             address = results.get(0).getAsJsonObject().get("formatted_address").getAsString();
 
-            //Get the coordinates of the place
-            System.out.println("LAT-Google_Map: " + lat);
-            System.out.println("LONG-Google_Map: " + lng);
 
             //Get the northwestern and southwestern coordinates of the place
             northEastLat = results.get(0).getAsJsonObject().get("geometry").getAsJsonObject().get("viewport").getAsJsonObject().get("northeast").getAsJsonObject().get("lat").getAsDouble();
@@ -251,9 +252,8 @@ public class ReviewController {
         return AIReviews;
     }
 
-    public static void search(Context ctx){
-
-
+    public static String formatSpacesToURL(String string){
+        return string.replace(" ", "%20");
     }
 
 }

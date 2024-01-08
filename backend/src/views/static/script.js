@@ -6,22 +6,28 @@ async function getReviewForPlace() {
         return;
     }
 
+    const body = {
+        name : companyName
+    };
+
     // Gör en HTTP-begäran till backend med företagsnamnet
-    fetch('/' + encodeURIComponent(companyName))
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Fel');
-            }
-            return response.json();
-        })
+    fetch('http://localhost:8080/places', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+    })
+        .then(response => response.json())
         .then(data => {
-            // Uppdatera frontend med recensionsinformation
+            console.log('Success:', data);
             updatePage(data);
         })
-        .catch(error => {
+        .catch((error) => {
             console.error('Error:', error);
-            alert('Kunde inte hämta recension');
         });
+
+
 }
 
 function searchAndRedirect() {
