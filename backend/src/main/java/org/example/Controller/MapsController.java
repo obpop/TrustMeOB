@@ -1,16 +1,21 @@
 package org.example.Controller;
 
 import io.javalin.http.Context;
+import org.example.ConfigLoader;
 
 public class MapsController {
-    String APIKey = "AIzaSyDtcKuHo3NHAxhi8Kj0rCqYEfKySDXCZpo"; //Skriv in API key nedan AIzaSyDtcKuHo3NHAxhi8Kj0rCqYEfKySDXCZpo
+    private static final String API_KEY;
+    static {
+        ConfigLoader loader = new ConfigLoader();
+        API_KEY = loader.getApiKey("google.api.key");
+    }
 
 
     // Tar emot en array med latitude och longitude
     public String handleMapCreation(double[] coordinates) {
         if (coordinates == null || coordinates.length != 2) {
             return "Error: False coordinates";
-        } if (APIKey == null || APIKey.isEmpty()) {
+        } if (API_KEY == null || API_KEY.isEmpty()) {
             return "Error: API Key is not configured correctly";
         } else {
             try {
@@ -31,7 +36,7 @@ public class MapsController {
                 + ","
                 + longitude
                 + "&zoom=16&size=400x400&key="
-                + APIKey;
+                + API_KEY;
     }
 
 }
