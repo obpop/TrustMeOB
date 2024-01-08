@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="sv">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>TrustME</title>
-        <link href="static/style.css" rel="stylesheet" />
+        <link href="static/style.css" rel="stylesheet">
         <script src="static/script.js" defer></script>
     </head>
 
@@ -18,16 +18,16 @@
             <div class="searchbar-index">
                 <div class="search-container">
                     <input class="search-input" type="text" placeholder="Sök företagsnamn" id="companyName">
-                    <button class="search-button" onclick="getReviewForPlace()">
+                    <button class="search-button" onclick="searchAndRedirect()">
                         <img class="search-icon" src="images/search.png" alt="Sök">
-                    </button>
+                    </button>                    
                 </div>
             </div>
         </header>
          <!-- Huvudinnehåll -->
         <main>
              <!-- Listor om var TrustMe -->
-            <div id="progress-bar">
+            <div id="progress">
             </div> 
             <div id="strengths" class="data">
                 <h4 id="strengths-list">Strengths</h4>
@@ -50,17 +50,6 @@
                 <!-- Lista kommer att fyllas dynamiskt av JavaScript -->
                 <div id="strategy-data"></div>
             </div>
-              <!-- Recensionsdata från Google och Foursquare -->
-            <div id="reviewsdata" class="data">
-                <div id="google-info">
-                  <h4>Google Information</h4>
-                  <p id="google-reviews">Recensioner</p>
-                </div>
-              
-                <div id="foursquare-info">
-                  <h4>Foursquare Information</h4>
-                  <p id="foursquare-reviews">Recensioner</p>
-                </div>
         </main>
         <footer id="footer-index"></footer>
     </body>
