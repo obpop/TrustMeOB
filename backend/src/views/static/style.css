@@ -17,7 +17,7 @@ footer {
     color: rgba(247, 247, 247, 1);
     background: linear-gradient(#001020, #002c56);
     height: 200px;
-    margin-top: 1200px;
+    margin-top: 1300px;
 }
 
 #footer-index {
@@ -269,17 +269,16 @@ main {
     from {
         transform: rotate(0deg);
     }
-    to { 
+    to {
         transform: rotate(360deg);
     }
 }
- 
 
- @-webkit-keyframes rotate {
+@-webkit-keyframes rotate {
     from {
         -webkit-transform: rotate(0deg);
     }
-    to { 
+    to {
         -webkit-transform: rotate(360deg);
     }
 }
@@ -296,21 +295,21 @@ main {
     width: 100px;
     height: 100px;
     margin: 110px auto 0;
-    border:solid 10px #ffffff;
+    border: solid 10px #ffffff;
     border-radius: 50%;
     border-right-color: transparent;
     border-bottom-color: transparent;
-     -webkit-transition: all 0.5s ease-in;
-    -webkit-animation-name:             rotate; 
-    -webkit-animation-duration:         1.0s; 
-    -webkit-animation-iteration-count:  infinite;
+    -webkit-transition: all 0.5s ease-in;
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear;
-            
+
     transition: all 0.5s ease-in;
-    animation-name:             rotate; 
-    animation-duration:         1.0s; 
-    animation-iteration-count:  infinite;
-    animation-timing-function: linear; 
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 progress {
@@ -320,7 +319,7 @@ progress {
 }
 
 #progress-title {
-    font-family: sans-serif /* Byt ut 'Helvetica' mot önskat typsnitt */
+    font-family: sans-serif; /* Byt ut 'Helvetica' mot önskat typsnitt */
     /* Övriga stilregler... */
 }
 
