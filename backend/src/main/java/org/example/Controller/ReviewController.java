@@ -11,11 +11,17 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
 public class ReviewController {
-    private static final String API_KEY;
+    private static final String API_KEY_GOOGLE;
 
     static {
-        ConfigLoader loader = new ConfigLoader();
-        API_KEY = loader.getApiKey("google.api.key");
+        ConfigLoader loaderGoogle = new ConfigLoader();
+        API_KEY_GOOGLE = loaderGoogle.getApiKey("google.api.key");
+    }
+
+    private static final String API_KEY_AI;
+    static {
+        ConfigLoader loaderAI = new ConfigLoader();
+        API_KEY_AI = loaderAI.getApiKey("openai.api.key");
     }
 
     public static void getReviewForPlace(Context ctx) throws IOException, InterruptedException {
@@ -28,7 +34,7 @@ public class ReviewController {
 
         // String apiKey = "";
         String placeId = "";
-        String textSearchUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + companyName + "&key=" + API_KEY;
+        String textSearchUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + companyName + "&key=" + API_KEY_GOOGLE;
         double lat = 0;
         double lng = 0;
         double northEastLat = 0;
@@ -86,7 +92,7 @@ public class ReviewController {
         }
 
         //Get the reviews of the place
-        JsonArray reviews = getReviews(ctx, placeId, API_KEY, lat, lng);
+        JsonArray reviews = getReviews(ctx, placeId, API_KEY_GOOGLE, lat, lng);
 
         //OpenAI sending of reviews
         ArrayList<String> openAIResponse = new ArrayList<>();
@@ -195,16 +201,13 @@ public class ReviewController {
 
     public static String chatGPT(String message) {
         String url = "https://api.openai.com/v1/chat/completions";
-
-        ConfigLoader loader = new ConfigLoader();
-        String API_KEY = loader.getApiKey("openai.api.key");
         String model = "gpt-3.5-turbo";
 
         HttpClient client = HttpClient.newHttpClient();
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
-                .header("Authorization", "Bearer " + API_KEY)
+                .header("Authorization", "Bearer " + API_KEY_AI)
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString("{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message.replace("\n", "") + "\"}]}"))
                 .build();
