@@ -15,7 +15,7 @@ header {
 footer {
     background: linear-gradient(#001020, #002c56);
     height: 200px;
-    margin-top: 700px;
+    margin-top: 800px;
 }
 
 #footer-index {
@@ -172,11 +172,11 @@ h1 {
     color: rgb(0, 0, 0);
 }
 
-h3 {
+h4 {
     margin: 50px;
     color: rgba(99, 99, 99, 1);
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 600;
 }
 
 #mapImage {
@@ -242,11 +242,6 @@ main {
     z-index: 1;
 }
 
-.data h3 {
-    font-size: 30px;
-    font-weight: 700;
-}
-
 .data ul {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
@@ -258,4 +253,8 @@ main {
 
 .data li {
     margin-bottom: 20px;
+}
+
+h5 {
+    color: #525252;
 }
