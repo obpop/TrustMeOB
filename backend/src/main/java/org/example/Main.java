@@ -1,7 +1,4 @@
-package org.example;
-
 import io.javalin.Javalin;
-import org.example.Controller.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,9 +19,17 @@ public class Main {
                     it.anyHost();
                 });
             });
-        }).start(8080);
-
+        })
+        .start(getHerokuAssignedPort());
+        
         app.post("/places", ReviewController::getReviewForPlace);
-        app.post("/openai", OpenAIController::chatGPT);
+    }
+    
+    private static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 7070;
     }
 }

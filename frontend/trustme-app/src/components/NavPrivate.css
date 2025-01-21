@@ -1,0 +1,54 @@
+.about-container {
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.paragraph-box#middle-para {
+    background-color: #489427;
+}
+
+.paragraph-box {
+    display: flex;
+    padding: 50px; 
+    background-color: #156a11;
+    color: whitesmoke;
+    text-shadow: 1px 1px black;
+}
+
+.icon {
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.paragraph-title {
+    font-size: 20px;
+    margin: 0;
+    text-align: start;
+    color: whitesmoke;
+    text-shadow: 2px 2px black;
+}
+
+.paragraph-text {
+    font-size: 16px;
+    text-align: start;
+    margin-top: 10px;
+    font-style: italic;
+    width: 50%;
+}
+
+.page-title {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: #489427;
+    margin: 0;
+    padding-block: 50px;
+    color: whitesmoke;
+    text-shadow: 2px 2px black;
+}

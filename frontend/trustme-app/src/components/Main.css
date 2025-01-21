@@ -1,0 +1,364 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
+.main {
+  text-align: center;
+  width: 100%;
+  height: 100%-300px;
+  padding-bottom: 0;
+  margin: 0px;
+  padding-top: 100px;  
+}
+
+#hitta-hit {
+    font-size: 35px;
+    padding-top: 50px;
+    padding-bottom: 25px;
+    font-family: 'Arial', sans-serif;
+    align-items: center;
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: 2px 2px black;
+    margin: 0;
+}
+
+.data-container-color1 {
+    display: flex;
+    background-color: #489427;
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    
+}
+
+.data-container-color2 {
+    display: flex;
+    background-color: #156a11;
+    width: 100%;
+    max-height: 100%;
+    height: 300px;
+}
+
+.data-container-color3 {
+    display: flex;
+    background-color: #489427;
+    width: 100%;
+    max-height: 100%;
+    height: 300px;
+}
+
+.data-container-color4 {
+    display: flex;
+    background-color: #156a11;
+    width: 100%;
+    max-height: 100%;
+    height: 300px;
+}
+
+.data-container-color5 {
+    display: inline-block;
+    background-color: #489427;
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.data {   
+    height: 100%;
+    width: 100%;
+    color: white;
+    text-align: start;
+    font-size: 35px;
+    margin: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-shadow: 2px 2px black;
+}
+
+.data h4 {
+    margin: 0px;
+    padding-block: 50px;
+}
+
+#placeinfo {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.review-container {
+    text-align: center;
+    padding-bottom: 45px;
+    margin: 0px;
+    align-items: center;
+}
+
+.review-line {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 5px;
+    font-style: italic;
+    font-size: 16px;
+}
+
+.review-text {
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: 'Arial', sans-serif;
+    align-items: center;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px black;
+}
+
+.about-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.about-caption {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.trustme-info {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #00e700; /* 004d00*/
+    background-color: #156a11;
+    display: block;
+    margin: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.trustme-info h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 2px 2px black;
+}
+
+.trustme-info h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 10px 0 0px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px black;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    padding-top: 30px;
+    padding-bottom: 80px;
+    background-color: #156a11;
+}
+
+.search-bar .search-icon {
+    font-size: 1.2rem;
+    color: black;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    position: relative;
+    cursor: text;
+    caret-color: #000000;
+    width: 55%;
+    background-color: white;
+    box-shadow: 3px 3px #000000;
+}
+
+.input-container input {    
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    border-radius: 40px;
+    font-family: 'Titillium Web';
+    border: transparent;
+    background-color: white;
+}
+
+.input-container input:focus {    
+    outline: #00e700;
+}
+
+
+.autocomplete-dropdown-container {
+    margin-top: 20px; 
+    position: absolute;
+    background-color: transparent;
+    top: 100%; /* Position dropdown directly below the input */
+    left: 0;
+    right: 0; /* Make the dropdown as wide as the search bar */
+    z-index: 1000; /* Ensure it appears above other content */
+    border-radius: 20px;
+    border: 1px solid rgb(133, 132, 132);
+    overflow: hidden;
+
+}
+.dropdown-content {
+    display: block;
+    position: relative; /* Ensure each item stacks vertically */
+    width: 100%; /* Make each suggestion take up the full width of the dropdown */
+    cursor: pointer;
+    background-color: transparent;
+    max-width: 100%;
+    padding-block: 10px;
+    padding-left: 10px;
+}
+
+.dropdown-content:hover {
+    background-color: #f1f1f1; /* Change background on hover */
+}
+
+#icon-auto {
+    margin-left: 0px;
+    margin-right: 20px;
+}
+
+#progress {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#mapImage {
+    max-width: 100%; /* Gör så att bilden aldrig är större än sin förälders bredd */
+    height: auto; /* Behåller proportionerna */
+    width: 300px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#mapImage:hover {
+    box-shadow: 2px 5px 5px 2px rgba(0, 0, 0, 0.5);
+    transform: translateY(-10px);
+}
+.p {
+    text-align: center;
+}
+
+.address-company {
+    color: whitesmoke;
+    font-family: 'Titillium Web';
+    font-size: 18px;
+    margin: 0;
+    padding-top: 20px;
+    text-shadow: 2px 2px black;
+    margin-bottom: 50px;
+} 
+
+.h2 {
+    font-family: 'Orbitron', sans-serif;
+}  
+
+.name-company-div {
+    background-color: #d2f898; /*Could use #e2fabd instead*/
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.name-company-div h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 30px;
+    margin: 0px;
+    color: #000000;
+    text-shadow: 1px 1px whitesmoke;
+}
+
+#company-about-reviews {
+    color: #000000;
+    font-family: 'Titillium Web';
+    font-size: 18px;
+    margin: 0;
+    padding-top: 20px;
+    text-decoration: underline;
+    
+}
+
+#swot-buzz {
+    color: rgb(0, 0, 0);
+    font-style: italic;
+    font-family: 'Titillium Web';
+    font-size: 18px;
+    margin: 0;
+    text-shadow: 1px 0px #000000;
+}
+
+.loader { 
+    border-radius: 10px;
+    border: 4px solid transparent;
+    position: relative;
+    padding: 1px;
+    width: 20%; 
+    max-width: 20%; 
+    background-color: white;
+    color: #000000;
+    margin: auto;
+  } 
+  
+  .loader:before {
+    content: '';
+    border: 1px solid #ffffff; 
+    border-radius: 10px;
+    position: absolute;
+    top: -4px; 
+    right: -4px; 
+    bottom: -4px; 
+    left: -4px;
+  }
+  
+  .loader .loaderBar { 
+    position: absolute;
+    border-radius: 10px;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    width: 0;
+    animation: borealisBar 2s linear infinite;
+  }
+  
+  @keyframes borealisBar {
+    0% {
+      left: 0%;
+      right: 100%;
+      width: 0%;
+    }
+    10% {
+      left: 0%;
+      right: 75%;
+      width: 25%;
+    }
+    90% {
+      right: 0%;
+      left: 75%;
+      width: 25%;
+    }
+    100% {
+      left: 100%;
+      right: 0%;
+      width: 0%;
+    }
+  }
+
+
+

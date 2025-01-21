@@ -1,0 +1,15 @@
+{
+  "short_name": "TrustMe",
+  "name": "TrustMe - Company Reviews",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16 32x32 48x48 72x72 96x96 144x144 192x192 512x512",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#156a11"
+}
