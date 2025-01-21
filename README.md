@@ -8,6 +8,8 @@ TrustMe is a platform designed to provide users with reliable and comprehensive 
 - AI-generated summaries of reviews
 The system utilizes APIs like Google Places, Foursquare Places, and OpenAI to gather and process data dynamically.
 
+<img width="1436" alt="Screenshot 2025-01-21 at 19 20 34" src="https://github.com/user-attachments/assets/b00ad10a-3eec-494f-8958-2a5af7a6c641" />
+
 # Technical Stack
 ### Backend
 Language: Kotlin/Java
@@ -92,3 +94,13 @@ To make the project functional, you need to add your own API keys for the follow
 - SLF4J: Logging framework.
 - Jackson: For JSON processing.
 - Gson: For handling JSON objects.
+
+# Informative Pages: 
+<img width="776" alt="Screenshot 2025-01-21 at 19 21 54" src="https://github.com/user-attachments/assets/f4964ada-9c47-4219-ae9b-5ec8060eeabc" />
+
+
+<img width="755" alt="Screenshot 2025-01-21 at 19 21 42" src="https://github.com/user-attachments/assets/46edc1b5-f930-4963-b95d-43075ff7d84b" />
+
+
+<img width="781" alt="Screenshot 2025-01-21 at 19 21 17" src="https://github.com/user-attachments/assets/17de7ef9-37a5-43e3-975f-3a6af816a86c" />
+
