@@ -63,7 +63,7 @@ b. java Main
 2. Install dependencies:
 - npm install
 3. Start the frontend:
-npm run start
+- npm run start
 4. Open your browser and go to http://localhost:3000 to view the interface.
 
 # Usage
